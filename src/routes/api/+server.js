@@ -1,3 +1,4 @@
+
 export function isSpcProduct(barcode) {
     let returnStrings = {
         manu: null,
