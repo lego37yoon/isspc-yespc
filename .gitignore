@@ -1,0 +1,10 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.yarn/cache
+.yarn/unplugged
+.env
+.env.*
+!.env.example
