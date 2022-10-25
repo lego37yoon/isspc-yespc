@@ -102,6 +102,12 @@
     </section>
 </main>
 
+<footer>
+    <p>copyright 2022 paperbox</p>
+    <p>Special Thanks to <a href="https://twitter.com/RanolP_777" target="_blank">Ranol☆P</a></p>
+    <p>Inspired from <a href="https://isnamyang.nullfull.kr">IsNamyang</a> Project</p>
+</footer>
+
 <dialog id="result" bind:this={resultSection}>
     {#if resultData.spc}
         <h1>✅ 다행이에요!</h1>
@@ -166,6 +172,26 @@
         grid: repeat(1, 1fr);
         justify-content: center;
         margin: 2rem;
+    }
+
+    section p {
+        text-align: center;
+    }
+
+    footer {
+        display: grid;
+        grid: repeat(1, 1fr);
+        justify-content: center;
+        margin: 1rem;
+        font-family: "IBM Plex Sans KR", sans-serif;
+    }
+
+    footer, footer a, footer a:visited {
+        color: #7F8181;
+    }
+
+    footer p {
+        margin: 0;
     }
 
     #reader {
