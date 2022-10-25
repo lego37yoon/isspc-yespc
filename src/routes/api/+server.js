@@ -6,7 +6,7 @@ export function isSpcProduct(barcode) {
         barcode: barcode,
         color: null
     };
-    
+
     if (
         barcode.startsWith("8804007") ||
         barcode.startsWith("880939312") ||

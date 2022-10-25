@@ -8,6 +8,7 @@
     let resultSection;
     let codeElement = null;
     let typeBarcode;
+    let errorMessage;
     let resultData = {
         manu: null,
         spc: false,
@@ -16,9 +17,17 @@
     };
 
     function getResultFromType(barcode) {
-        if (barcode.startsWith("880")) {
+        errorMessage = undefined;
+        if (barcode.startsWith("880") && barcode.length == 13) {
             resultData = isSpcProduct(barcode);
             resultSection.showModal();
+        } else {
+            if (!barcode.startsWith("880")) {
+                errorMessage = "해외 제품이나 단축형, 비표준형 바코드는 지원하지 않습니다.";
+            }
+            if (barcode.length != 13) {
+                errorMessage = "13자리가 맞는지 다시 한 번 확인해주세요.";
+            }
         }
     }
 
@@ -90,8 +99,11 @@
         {#if cameraHidden}
             <input id="type-barcode" type="text" inputmode="numeric" placeholder="880" bind:this={typeBarcode} />
             <button id="type-submit" on:click={getResultFromType(typeBarcode.value)}>찾기</button>
+            {#if errorMessage}
+                <p class="error-message">{errorMessage}</p>
+            {/if}
         {/if}
-        <p>880으로 시작하는 GS1 규격의 유통 바코드만 지원해요.</p>
+        <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드만 지원해요.</p>
     </section>
 </main>
 
@@ -149,6 +161,11 @@
     .header-default {
         display: inline;
         margin-left: -7px;
+    }
+
+    .error-message {
+        margin-bottom: 0;
+        color: #8C182B;
     }
 
     .request {
