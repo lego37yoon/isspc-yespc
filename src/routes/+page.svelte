@@ -37,7 +37,6 @@
                         formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ]
                     },
                     (decodedText) => {
-                        codeElement.pause(true);
                         resultData = isSpcProduct(decodedText);
                         resultSection.showModal();
                     },
@@ -121,7 +120,7 @@
         <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request">잘못된 정보 제보하기</a></p>
         <p><a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" class="suggest-spc">SPC의 다양한 브랜드도 만나보세요.</a></p>
     {/if}
-    <button id="close-dialog" on:click={resultSection.close() && codeElement.resume()}>닫고 다시 찾기</button>
+    <button id="close-dialog" on:click={resultSection.close()}>닫고 다시 찾기</button>
 </dialog>
 
 <style>
