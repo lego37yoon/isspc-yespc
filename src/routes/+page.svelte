@@ -98,7 +98,7 @@
 <footer>
     <p>copyright 2022 paperbox</p>
     <p>Special Thanks to <a href="https://twitter.com/RanolP_777" target="_blank">Ranol☆P</a></p>
-    <p>Inspired from <a href="https://isnamyang.nullfull.kr">IsNamyang</a> Project</p>
+    <p>Inspired by <a href="https://isnamyang.nullfull.kr">IsNamyang</a> Project</p>
 </footer>
 
 <dialog id="result" bind:this={resultSection}>
