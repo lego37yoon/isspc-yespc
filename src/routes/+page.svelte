@@ -4,8 +4,9 @@
     import { isSpcProduct } from './api/+server.js';
 
     let toolChooser;
-    let cameraHidden;
+    let cameraHidden = false;
     let resultSection;
+    let typeBarcode;
     let resultData = {
         manu: null,
         spc: false,
@@ -13,15 +14,9 @@
         color: null
     };
 
-    function onScanSuccess(decodedText, decodedResult) {
-        // handle the scanned code as you like, for example:
-        console.log(`Code matched = ${decodedText}`, decodedResult);
-    }
-
-    function onScanFailure(error) {
-        // handle scan failure, usually better to ignore and keep scanning.
-        // for example:
-        console.warn(`Code scan error = ${error}`);
+    function getResultFromType(barcode) {
+        resultData = isSpcProduct(barcode);
+        resultSection.show();
     }
 
     onMount(async() => {
@@ -40,6 +35,7 @@
                     (decodedText) => {
                         codeScanner.stop().then(() => {
                             resultData = isSpcProduct(decodedText);
+                            resultSection.show();
                         }).catch((err) => {
                             console.warn(`HTML QR Code Scanner Stop Failed ${err}`);
                         });
@@ -59,12 +55,11 @@
         toolChooser.addEventListener('MDCTabBar:activated', function(data) {
             switch(data.detail.index) {
                 case 1:
-                    cameraHidden.setAttribute("hidden");
+                    cameraHidden = true;
                     break;
                 case 0:
                 default:
-                    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-                    cameraHidden.removeAttribute("hidden");
+                    cameraHidden = false;
                     break;
             }
         });
@@ -86,24 +81,29 @@
         <mwc-tab isMinWidthIndicator label="직접 입력" />
     </mwc-tab-bar>
 
-    <section id="camera-tab" bind:this={cameraHidden}>
-        <div id="reader"></div>
-    </section>
-
-    {#key resultData.barcode}
-    {#if resultData.barcode != null}
-    <div id="result" bind:this={resultSection}>
+    {#if !cameraHidden}
+        <section id="camera-tab">
+            <div id="reader"></div>
+        </section>
+    {:else}
+        <section id="type-tab">
+            <label for="type-barcode">880으로 시작하는 바코드 번호를 입력하세요</label>
+            <input id="type-barcode" type="text" inputmode="numeric" placeholder="880" bind:this={typeBarcode} />
+            <button id="type-submit" type="button" on:click={getResultFromType(typeBarcode.value)}>찾기</button>
+        </section>
+    {/if}
+    
+    <dialog id="result" bind:this={resultSection}>
         {#if resultData.spc}
             <h1>다행이에요!</h1>
-            <p><span style="color: {resultData.color}">{manu}</span> 정품을 찾으셨네요.</p>
+            <p><span style="color: {resultData.color}">{resultData.manu}</span> 정품을 찾으셨네요.</p>
         {:else}
             <h1>아쉽네요.</h1>
             <p>SPC 혹은 계열사 제품이 아니에요.</p>
         {/if}
         <p>바코드 정보: {resultData.barcode ? resultData.barcode: "데이터를 읽으면 데이터가 표시됩니다."}</p>
-    </div>
-    {/if}
-    {/key}
+        <a href="#" class="request">잘못된 정보 제보하기</a>
+    </dialog>
 </main>
 
 <style>
@@ -126,6 +126,15 @@
         display: none;
     }
 
+    .request {
+        color: #7F8181;
+    }
+
+    main {
+        font-family: "IBM Plex Sans KR", sans-serif;
+        color: #7F8181
+    }
+
     section {
         display: flex;
         justify-content: center;
@@ -134,5 +143,10 @@
     #reader {
         height: 500px;
         width: 500px;
+    }
+
+    #result {
+        border-radius: 10px;
+        border: solid 1px #7F8181;
     }
 </style>
