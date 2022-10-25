@@ -6,7 +6,7 @@
     let toolChooser;
     let cameraHidden = false;
     let resultSection;
-    let codeElement;
+    let codeElement = null;
     let typeBarcode;
     let resultData = {
         manu: null,
@@ -24,32 +24,25 @@
 
     function createCamera() {
         codeElement = new Html5Qrcode("reader");
-        Html5Qrcode.getCameras().then(devices => {
-            if (devices && devices.length) {
-                codeElement.start(
-                    {
-                        facingMode: "environment"
-                    },
-                    {
-                        fps: 10,
-                        aspectRatio: 1.0,
-                        supportedScanTypes: [ Html5QrcodeScanType.SCAN_TYPE_CAMERA ],
-                        formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ]
-                    },
-                    (decodedText) => {
-                        resultData = isSpcProduct(decodedText);
-                        resultSection.showModal();
-                    },
-                    (errorMessage) => {
-                        console.warn(`HTML5 QR Code Scanner Error Message ${errorMessage}`);
-                    }
-                ).catch((err) => {
-                    console.warn(`HTML5 QR Code Scanner Error Message ${err}`);
-                    toolChooser.setAttribute("activeIndex", "1");
-                });
+        codeElement.start(
+            {
+                facingMode: "environment"
+            },
+            {
+                fps: 10,
+                aspectRatio: 1.0,
+                supportedScanTypes: [ Html5QrcodeScanType.SCAN_TYPE_CAMERA ],
+                formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ]
+            },
+            (decodedText) => {
+                resultData = isSpcProduct(decodedText);
+                resultSection.showModal();
+            },
+            (errorMessage) => {
+                console.warn(`HTML5 QR Code Scanner Error Message ${errorMessage}`);
             }
-        }).catch((err) => {
-            console.warn(err);
+        ).catch((err) => {
+            console.warn(`HTML5 QR Code Scanner Error Message ${err}`);
             toolChooser.setAttribute("activeIndex", "1");
         });
     }
@@ -64,6 +57,7 @@
                 case 1:
                     cameraHidden = true;
                     codeElement.stop();
+                    codeElement = null;
                     break;
                 case 0:
                 default:
@@ -124,6 +118,10 @@
 </dialog>
 
 <style>
+    body {
+        margin: 0;
+    }
+
     nav {
         --mdc-theme-primary: #30B3E7;
         --mdc-ripple-focus-opacity: 0.00;
@@ -138,6 +136,10 @@
         font-family: "IBM Plex Sans KR", sans-serif;
         font-weight: 600;
         color: #30B3E7;
+    }
+
+    header p {
+        text-align: center;
     }
 
     .header-bread {
@@ -168,9 +170,9 @@
 
     section {
         display: grid;
-        grid: repeat(1, 1fr);
-        justify-content: center;
-        margin: 2rem;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        margin: 2rem 0 2rem 0;
     }
 
     section p {
@@ -179,8 +181,8 @@
 
     footer {
         display: grid;
-        grid: repeat(1, 1fr);
-        justify-content: center;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
         margin: 1rem;
         font-family: "IBM Plex Sans KR", sans-serif;
     }
@@ -194,7 +196,7 @@
     }
 
     #reader {
-        width: 500px;
+        width: 320px;
     }
 
     #result {
@@ -221,6 +223,13 @@
         color: #FFFFFF;
         padding: 10px;
         background: #30B3E7;
+    }
+
+    dialog button {
         width: 100%;
+    }
+
+    section button {
+        width: 320px;
     }
 </style>
