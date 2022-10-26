@@ -79,12 +79,9 @@
 
 </script>
 
-<header>
-    <h1>
-        <span class="header-default">예스피씨</span>
-        <sup class="header-bread">알파</sup>
-    </h1>
-</header>
+<svelte:head>
+    <title>예스피씨</title>
+</svelte:head>
 
 <nav>
     <mwc-tab-bar bind:this={toolChooser}>
@@ -107,16 +104,10 @@
     </section>
 </main>
 
-<footer>
-    <p>copyright 2022 paperbox</p>
-    <p>Special Thanks to <a href="https://twitter.com/RanolP_777" target="_blank">Ranol☆P</a></p>
-    <p>Inspired by <a href="https://isnamyang.nullfull.kr">IsNamyang</a> Project</p>
-</footer>
-
 <dialog id="result" bind:this={resultSection}>
     {#if resultData.spc}
         <h1>✅ 다행이에요!</h1>
-        <p><span style="color: {resultData.color}">{resultData.manu}</span> 정품을 찾으셨네요.</p>
+        <p><span style="color: {resultData.color}">{resultData.manu}</span> 정품을 찾으셨어요.</p>
     {:else}
         <h1>❓ 아쉽네요.</h1>
         <p>SPC 혹은 계열사 제품이 아니에요.</p>
@@ -124,15 +115,12 @@
     {#if resultData.barcode != null}
         <p>바코드 정보: {resultData.barcode ? resultData.barcode: "데이터를 읽으면 데이터가 표시됩니다."}</p>
         <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request">잘못된 정보 제보하기</a></p>
-        <p><a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" class="suggest-spc">SPC의 다양한 브랜드도 만나보세요.</a></p>
+        <p><a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" rel="noreferrer" class="suggest-spc">SPC의 다양한 브랜드도 만나보세요.</a></p>
     {/if}
     <button id="close-dialog" on:click={resultSection.close()}>닫고 다시 찾기</button>
 </dialog>
 
 <style>
-    body {
-        margin: 0;
-    }
 
     nav {
         --mdc-theme-primary: #30B3E7;
@@ -140,27 +128,6 @@
         --mdc-typography-font-family: "IBM Plex Sans KR", sans-serif;
         --mdc-typography-button-font-size: 1.0rem;
         --mdc-typography-button-font-weight: 600;
-    }
-
-    header {
-        display: flex;
-        justify-content: center;
-        font-family: "IBM Plex Sans KR", sans-serif;
-        font-weight: 600;
-        color: #30B3E7;
-    }
-
-    header p {
-        text-align: center;
-    }
-
-    .header-bread {
-        font-size: 1.0rem;
-        vertical-align: top;
-    }
-    .header-default {
-        display: inline;
-        margin-left: -7px;
     }
 
     .error-message {
@@ -196,22 +163,7 @@
         text-align: center;
     }
 
-    footer {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        justify-items: center;
-        margin: 1rem;
-        font-family: "IBM Plex Sans KR", sans-serif;
-    }
-
-    footer, footer a, footer a:visited {
-        color: #7F8181;
-    }
-
-    footer p {
-        margin: 0;
-    }
-
+    
     #reader {
         width: 320px;
     }
