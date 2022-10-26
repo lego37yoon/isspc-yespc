@@ -13,10 +13,10 @@
 <slot></slot>
 
 <footer>
-    <p>copyright 2022 <a href="https://twitter.com/paperbox_update">paperbox</a></p>
-    <p>Special Thanks to <a href="https://twitter.com/RanolP_777" target="_blank">Ranol☆P</a></p>
-    <p>Inspired by <a href="https://isnamyang.nullfull.kr">IsNamyang</a> Project</p>
-    <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request">문의하기</a></p>
+    <p>copyright 2022 <a href="https://twitter.com/paperbox_update" target="_blank" rel="noreferrer">paperbox</a></p>
+    <p>Special Thanks to <a href="https://twitter.com/RanolP_777" target="_blank" rel="noreferrer">Ranol☆P</a></p>
+    <p>Inspired by <a href="https://isnamyang.nullfull.kr" target="_blank" rel="noreferrer">IsNamyang</a> Project</p>
+    <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request" target="_blank" rel="noreferrer">문의하기</a></p>
 </footer>
 
 

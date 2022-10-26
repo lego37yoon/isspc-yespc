@@ -114,7 +114,7 @@
     {/if}
     {#if resultData.barcode != null}
         <p>바코드 정보: {resultData.barcode ? resultData.barcode: "데이터를 읽으면 데이터가 표시됩니다."}</p>
-        <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request">잘못된 정보 제보하기</a></p>
+        <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request" target="_blank" rel="noreferrer">잘못된 정보 제보하기</a></p>
         <p><a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" rel="noreferrer" class="suggest-spc">SPC의 다양한 브랜드도 만나보세요.</a></p>
     {/if}
     <button id="close-dialog" on:click={resultSection.close()}>닫고 다시 찾기</button>
