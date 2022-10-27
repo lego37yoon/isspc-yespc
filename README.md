@@ -1,38 +1,17 @@
-# create-svelte
+# 예스피씨
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+좋아하는 SPC 식품을 찾아주는, 예스피씨입니다!
 
-## Creating a project
+현재 3개 계열사의 식품을 찾아주고 있어요.
 
-If you're seeing this, you've probably already done this step. Congrats!
+- SPC 삼립
+- 비알코리아
+- 파리크라상
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+# Open Source License
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- Svelte [MIT License](https://github.com/sveltejs/svelte/blob/master/LICENSE.md)
+- SvelteKit [MIT License](https://github.com/sveltejs/kit/blob/master/LICENSE)
+- Material Web Components [Apache 2.0 License](https://github.com/material-components/material-web/blob/master/LICENSE)
+- HTML5QRCode [Apache 2.0 License](https://github.com/mebjas/html5-qrcode/blob/master/LICENSE)
+- IBM Plex Sans KR [SIL OFL 1.1](https://github.com/IBM/plex/blob/master/LICENSE.txt)
