@@ -1,0 +1,25 @@
+{
+  "indexes": {
+    "8804007": "spc-samlip",
+    "880939312": "spc-samlip",
+    "8801068": "spc-samlip",
+    "880928863": "br-korea",
+    "880969023": "paris-croissant"
+  },
+
+  "spc-samlip": {
+    "name": "SPC삼립",
+    "color": "#30B3E7",
+    "spc": true
+  },
+  "br-korea": {
+    "name": "BR코리아",
+    "color": "#DB5B9B",
+    "spc": true
+  },
+  "paris-croissant": {
+    "name": "파리크라상",
+    "color": "#4063A0",
+    "spc": true
+  }
+}
