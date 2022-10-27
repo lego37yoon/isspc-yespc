@@ -31,7 +31,7 @@
         }
     }
 
-    function createCamera() {
+    async function createCamera() {
         codeElement = new Html5Qrcode("reader");
         codeElement.start(
             {
@@ -60,7 +60,7 @@
         await import ("@material/mwc-tab-bar");
         await import ("@material/mwc-tab");
 
-        createCamera();
+        await createCamera();
         toolChooser.addEventListener('MDCTabBar:activated', function(data) {
             switch(data.detail.index) {
                 case 1:
@@ -114,7 +114,8 @@
     {/if}
     {#if resultData.barcode != null}
         <p>바코드 정보: {resultData.barcode ? resultData.barcode: "데이터를 읽으면 데이터가 표시됩니다."}</p>
-        <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request" target="_blank" rel="noreferrer">잘못된 정보 제보하기</a></p>
+        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSffIduq6Q4Dd3xKd7UGDSN6nlON7ymlc3YPqdOb21QF0ujoDA/viewform?entry.2037853848={resultData.barcode}" class="request" target="_blank" rel="noreferrer">제품 정보 정정 및 제보</a></p>
+        <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request" target="_blank" rel="noreferrer">기능 오류 제보하기</a></p>
         <p><a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" rel="noreferrer" class="suggest-spc">SPC의 다양한 브랜드도 만나보세요.</a></p>
     {/if}
     <button id="close-dialog" on:click={resultSection.close()}>닫고 다시 찾기</button>
