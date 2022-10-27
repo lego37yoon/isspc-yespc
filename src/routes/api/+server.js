@@ -14,6 +14,7 @@ export function isSpcProduct(barcode) {
             returnStrings.manu = manu.name;
             returnStrings.spc = manu.spc;
             returnStrings.color = manu.color;
+            break;
         }
     }
 
