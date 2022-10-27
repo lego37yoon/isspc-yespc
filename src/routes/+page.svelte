@@ -23,6 +23,7 @@
             case 411:
                 errorMessage = "13자리가 맞는지 다시 한 번 확인해주세요.";
                 break;
+            case 404:
             case 200:
                 resultSection.showModal();
                 break;
