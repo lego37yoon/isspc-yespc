@@ -3,6 +3,8 @@
     "8804007": "spc-samlip",
     "880939312": "spc-samlip",
     "8801068": "spc-samlip",
+    "8809687080242": "spc-samlip-col",
+    "8809766820028": "spc-samlip-col",
     "880928863": "br-korea",
     "880969023": "paris-croissant"
   },
@@ -20,6 +22,11 @@
   "paris-croissant": {
     "name": "파리크라상",
     "color": "#4063A0",
+    "spc": true
+  },
+  "spc-samlip-col" {
+    "name": "SPC 삼립 콜라보 상품",
+    "color": "#30B3E7",
     "spc": true
   }
 }
