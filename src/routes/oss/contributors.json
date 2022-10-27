@@ -1,0 +1,63 @@
+{
+    "special": [
+        {
+            "name": "Ranol☆P",
+            "url": "https://twitter.com/RanolP_777",
+            "notes": "프로젝트 명칭, 방향성 등 제안"
+        }
+    ],
+
+    "code": [
+        {
+            "name": "somni",
+            "url": "https://github.com/somnisomni",
+            "notes": "제조사 데이터 JSON 형식으로 변환 및 코드 반영"
+        }
+    ],
+
+    "data": [
+        {
+            "name": "Nothing but a ∂ιег",
+            "url": "https://twitter.com/wldnRetrograde/status/1584991453809627136",
+            "notes": "삼립호빵 콜라보 핫팩 데이터 제보"
+        }
+    ],
+
+    "oss": [
+        {
+            "name": "Svelte",
+            "url": "https://svelte.dev",
+            "license-url": "https://github.com/sveltejs/svelte/blob/master/LICENSE.md",
+            "license-name": "MIT License",
+            "notes": "웹 프론트엔드 프레임워크"
+        },
+        {
+            "name": "SvelteKit",
+            "url": "https://kit.svelte.dev",
+            "license-url": "https://github.com/sveltejs/kit/blob/master/LICENSE",
+            "license-name": "MIT License",
+            "notes": "웹 애플리케이션 프레임워크"
+        },
+        {
+            "name": "Material Web Components: mwc-tab-bar, mwc-tab",
+            "url": "https://github.com/material-components/material-web",
+            "license-url": "https://github.com/material-components/material-web/blob/master/LICENSE",
+            "license-name": "Apache 2.0 License",
+            "notes": "Material Components를 이용한 탭 구현"
+        },
+        {
+            "name": "HTML5QRCode",
+            "url": "https://github.com/mebjas/html5-qrcode",
+            "license-url": "https://github.com/mebjas/html5-qrcode/blob/master/LICENSE",
+            "license-name": "Apache 2.0 License",
+            "notes": "카메라 기반의 EAN_13 규격 바코드 인식"
+        },
+        {
+            "name": "IBM Plex Sans KR",
+            "url": "https://github.com/IBM/plex",
+            "license-url": "https://github.com/IBM/plex/blob/master/LICENSE.txt",
+            "license-name": "SIL Open Font License 1.1",
+            "notes": "글꼴"
+        }
+    ]
+}
