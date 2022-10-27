@@ -5,18 +5,20 @@
 
 <header>
     <h1>
-        <span class="header-default">예스피씨</span>
-        <sup class="header-bread">알파</sup>
+        <a href="./">
+            <span class="header-default">예스피씨</span>
+            <sup class="header-bread">알파</sup>
+        </a>
     </h1>
 </header>
 
 <slot></slot>
 
 <footer>
-    <p>copyright 2022 <a href="https://twitter.com/paperbox_update" target="_blank" rel="noreferrer">paperbox</a></p>
+    <p>copyright 2022 <a href="https://twitter.com/paperbox_update" target="_blank" rel="noreferrer">paperbox</a> and <a href="./oss" target="_blank" rel="noreferrer">contributors</a></p>
     <p>Special Thanks to <a href="https://twitter.com/RanolP_777" target="_blank" rel="noreferrer">Ranol☆P</a></p>
     <p>Inspired by <a href="https://isnamyang.nullfull.kr" target="_blank" rel="noreferrer">IsNamyang</a> Project</p>
-    <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request" target="_blank" rel="noreferrer">문의하기</a></p>
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScammI4qPQs8MNfHpSJhOh1ik43_jlB0fRqxv3cJLD285tZbQ/viewform?usp=sf_link" class="request" target="_blank" rel="noreferrer">문의하기</a></p>
 </footer>
 
 
@@ -31,6 +33,11 @@
 
     header p {
         text-align: center;
+    }
+
+    h1 a, h1 a:visited, h1 a:hover, h1 a:active {
+        color: #30B3E7;
+        text-decoration: none;
     }
 
     .header-bread {

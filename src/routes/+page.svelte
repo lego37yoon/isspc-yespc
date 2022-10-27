@@ -10,24 +10,24 @@
     let typeBarcode;
     let errorMessage;
     let resultData = {
-        manu: null,
-        spc: false,
-        barcode: null,
-        color: null
+        resultCode: 410
     };
 
     function getResultFromType(barcode) {
         errorMessage = undefined;
-        if (barcode.startsWith("880") && barcode.length == 13) {
-            resultData = isSpcProduct(barcode);
-            resultSection.showModal();
-        } else {
-            if (!barcode.startsWith("880")) {
+        resultData = isSpcProduct(barcode);
+        switch (resultData.resultCode) {
+            case 400:
                 errorMessage = "해외 제품이나 단축형, 비표준형 바코드는 지원하지 않습니다.";
-            }
-            if (barcode.length != 13) {
+                break;
+            case 411:
                 errorMessage = "13자리가 맞는지 다시 한 번 확인해주세요.";
-            }
+                break;
+            case 200:
+                resultSection.showModal();
+                break;
+            default:
+                errorMessage = `오류 코드 ${resultData.resultCode}. 알 수 없는 이유로 조회에 실패했습니다.`;
         }
     }
 
@@ -41,11 +41,10 @@
                 fps: 10,
                 aspectRatio: 1.0,
                 supportedScanTypes: [ Html5QrcodeScanType.SCAN_TYPE_CAMERA ],
-                formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ]
+                formatsToSupport: [ Html5QrcodeSupportedFormats.EAN_13 ]
             },
             (decodedText) => {
-                resultData = isSpcProduct(decodedText);
-                resultSection.showModal();
+                getResultFromType(decodedText);
             },
             (errorMessage) => {
                 console.warn(`HTML5 QR Code Scanner Error Message ${errorMessage}`);
@@ -114,8 +113,7 @@
     {/if}
     {#if resultData.barcode != null}
         <p>바코드 정보: {resultData.barcode ? resultData.barcode: "데이터를 읽으면 데이터가 표시됩니다."}</p>
-        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSffIduq6Q4Dd3xKd7UGDSN6nlON7ymlc3YPqdOb21QF0ujoDA/viewform?entry.2037853848={resultData.barcode}" class="request" target="_blank" rel="noreferrer">제품 정보 정정 및 제보</a></p>
-        <p><a href="https://forms.gle/YCXs6e3GNUTyqWLG9" class="request" target="_blank" rel="noreferrer">기능 오류 제보하기</a></p>
+        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScammI4qPQs8MNfHpSJhOh1ik43_jlB0fRqxv3cJLD285tZbQ/viewform?entry.350390761={resultData.barcode}" class="request" target="_blank" rel="noreferrer">제보 및 문의하기</a></p>
         <p><a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" rel="noreferrer" class="suggest-spc">SPC의 다양한 브랜드도 만나보세요.</a></p>
     {/if}
     <button id="close-dialog" on:click={resultSection.close()}>닫고 다시 찾기</button>
