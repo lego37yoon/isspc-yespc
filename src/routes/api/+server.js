@@ -1,5 +1,5 @@
 import manufacturers from "./manufacturers.json";
-import products from "./products.json";
+//import products from "./products.json";
 
 export function isSpcProduct(barcode) {
     /*
