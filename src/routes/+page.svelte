@@ -13,7 +13,7 @@
         resultCode: 410
     };
 
-    function getResultFromType(barcode) {
+    async function getResultFromType(barcode) {
         errorMessage = undefined;
         resultData = isSpcProduct(barcode);
         switch (resultData.resultCode) {
@@ -25,7 +25,13 @@
                 break;
             case 404:
             case 200:
-                resultSection.showModal();
+                await resultSection.showModal();
+                if (typeof HTMLDialogElement !== "function") {
+                    resultSection.style.position = "fixed";
+                    resultSection.style.top = "50%";
+                    resultSection.style.transform = "translate(0, -50%)";
+                    document.getElementsByClassName("backdrop")[0].style.cssText = "background: rgba(0,0,0,0.1);position: fixed;top: 0;right: 0;bottom: 0;left: 0;";
+                }
                 break;
             default:
                 errorMessage = `오류 코드 ${resultData.resultCode}. 알 수 없는 이유로 조회에 실패했습니다.`;
@@ -59,6 +65,8 @@
     onMount(async() => {
         await import ("@material/mwc-tab-bar");
         await import ("@material/mwc-tab");
+        const dialogPolyfill = (await import ("dialog-polyfill")).default;
+
 
         await createCamera();
         toolChooser.addEventListener('MDCTabBar:activated', function(data) {
@@ -75,6 +83,7 @@
                     break;
             }
         });
+        dialogPolyfill.registerDialog(resultSection);
     });
 
 </script>

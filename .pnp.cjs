@@ -32,6 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material/mwc-tab-bar", "npm:0.27.0"],\
             ["@sveltejs/adapter-auto", "npm:1.0.0-next.84"],\
             ["@sveltejs/kit", "virtual:86a3e1053167f3225ff6f5ad5b7b1df270a26cc2eedc2baa0f28ad8c03bbcfac35a5c6286c990e66c6e9f736f7a831399120a54e38f4ccd4c6246e4747d200e8#npm:1.0.0-next.524"],\
+            ["dialog-polyfill", "npm:0.5.6"],\
             ["eslint", "npm:8.26.0"],\
             ["eslint-plugin-svelte3", "virtual:86a3e1053167f3225ff6f5ad5b7b1df270a26cc2eedc2baa0f28ad8c03bbcfac35a5c6286c990e66c6e9f736f7a831399120a54e38f4ccd4c6246e4747d200e8#npm:4.0.0"],\
             ["html5-qrcode", "npm:2.2.4"],\
@@ -892,6 +893,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@material/mwc-tab-bar", "npm:0.27.0"],\
             ["@sveltejs/adapter-auto", "npm:1.0.0-next.84"],\
             ["@sveltejs/kit", "virtual:86a3e1053167f3225ff6f5ad5b7b1df270a26cc2eedc2baa0f28ad8c03bbcfac35a5c6286c990e66c6e9f736f7a831399120a54e38f4ccd4c6246e4747d200e8#npm:1.0.0-next.524"],\
+            ["dialog-polyfill", "npm:0.5.6"],\
             ["eslint", "npm:8.26.0"],\
             ["eslint-plugin-svelte3", "virtual:86a3e1053167f3225ff6f5ad5b7b1df270a26cc2eedc2baa0f28ad8c03bbcfac35a5c6286c990e66c6e9f736f7a831399120a54e38f4ccd4c6246e4747d200e8#npm:4.0.0"],\
             ["html5-qrcode", "npm:2.2.4"],\
@@ -1116,6 +1118,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/devalue-npm-4.0.1-772f5a939e-c7acc645e2.zip/node_modules/devalue/",\
           "packageDependencies": [\
             ["devalue", "npm:4.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["dialog-polyfill", [\
+        ["npm:0.5.6", {\
+          "packageLocation": "./.yarn/cache/dialog-polyfill-npm-0.5.6-2a36d9e8ee-dde8d4b6a6.zip/node_modules/dialog-polyfill/",\
+          "packageDependencies": [\
+            ["dialog-polyfill", "npm:0.5.6"]\
           ],\
           "linkType": "HARD"\
         }]\

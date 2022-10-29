@@ -53,6 +53,13 @@
             "notes": "카메라 기반의 EAN_13 규격 바코드 인식"
         },
         {
+            "name": "dialog-polyfill",
+            "url": "https://github.com/GoogleChrome/dialog-polyfill",
+            "license-url": "https://github.com/GoogleChrome/dialog-polyfill/blob/master/LICENSE",
+            "license-name": "BSD 3-Clause \"New\" or \"Revised\" License",
+            "notes": "HTMLDialogElement 미지원 브라우저를 위한 지원"
+        },
+        {
             "name": "IBM Plex Sans KR",
             "url": "https://github.com/IBM/plex",
             "license-url": "https://github.com/IBM/plex/blob/master/LICENSE.txt",

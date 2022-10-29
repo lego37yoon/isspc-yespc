@@ -739,6 +739,7 @@ __metadata:
     "@material/mwc-tab-bar": ^0.27.0
     "@sveltejs/adapter-auto": next
     "@sveltejs/kit": next
+    dialog-polyfill: ^0.5.6
     eslint: ^8.16.0
     eslint-plugin-svelte3: ^4.0.0
     html5-qrcode: ^2.2.4
@@ -921,6 +922,13 @@ __metadata:
   version: 4.0.1
   resolution: "devalue@npm:4.0.1"
   checksum: c7acc645e29482129a5e43e5b3896ed68939a3696cbe4d5a5e1d5e9e4a906f18253b6f4b58b7523ff1ac6c1183fb4aabd08ff83bd7cbc83efaad9a64d2a1e09b
+  languageName: node
+  linkType: hard
+
+"dialog-polyfill@npm:^0.5.6":
+  version: 0.5.6
+  resolution: "dialog-polyfill@npm:0.5.6"
+  checksum: dde8d4b6a62b63b710e0d0d70b615d92ff08f3cb2b521e1f99b17e8220d9d55d0fdf9fc17fbe77b0ff1be817094e14b60c4c4bacd5456fba427ede48d2d90230
   languageName: node
   linkType: hard
 

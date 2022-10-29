@@ -1,8 +1,3 @@
-<script>
-    /** @type {import('./$types').LayoutData} */
-    export let data;
-</script>
-
 <header>
     <h1>
         <a href="./">
@@ -29,10 +24,6 @@
         font-family: "IBM Plex Sans KR", sans-serif;
         font-weight: 600;
         color: #30B3E7;
-    }
-
-    header p {
-        text-align: center;
     }
 
     h1 a, h1 a:visited, h1 a:hover, h1 a:active {
