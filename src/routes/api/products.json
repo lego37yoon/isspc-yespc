@@ -1,0 +1,118 @@
+{
+    "list": [
+        {
+            "barcode": "8809687080242",
+            "name": "GS25 삼립호빵 핫팩 대형",
+            "ownNumber": null,
+            "type": "spc-samlip-col"
+        },
+        {
+            "barcode": "8809766820028",
+            "name": "GS25 삼립호빵 핫팩 일반형",
+            "ownNumber": null,
+            "type": "spc-samlip-col"
+        },
+        {
+            "barcode": "8801068406719",
+            "name": "노티드 우유크림슈",
+            "ownNumber": ["19950338015-8643"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068406306",
+            "name": "쿠키런 야심찬 아포가토 롤케익",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402346",
+            "name": "쿠키런 활기찬 베리롤케익",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "880106840451743010",
+            "name": "빅통모짜비프버거",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402261",
+            "name": "포켓몬 피카피카 촉촉치즈케익",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402254",
+            "name": "포켓몬 파이리의 화르륵 핫소스팡",
+            "ownNumber": ["19710275003-5186"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402230",
+            "name": "포켓몬 꼬부기의 달콤파삭 꼬부기빵",
+            "ownNumber": ["19710275003-5183"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402278",
+            "name": "포켓몬 돌아온 고오스 초코케익",
+            "ownNumber": ["19710275003-5179", "19930188091-2381"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402285",
+            "name": "포켓몬 돌아온 로켓단 초코롤",
+            "ownNumber": ["19950338015-8567"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402223",
+            "name": "포켓몬 푸린의 폭신폭신 딸기크림빵",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402247",
+            "name": "포켓몬 디그다의 딸기 카스타드 빵",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402636",
+            "name": "포켓몬 피카츄 망고 컵케익",
+            "ownNumber": ["19710275003-5201"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402629",
+            "name": "포켓몬 푸린의 피치피치슈",
+            "ownNumber": ["19950338015-8582"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068403282",
+            "name": "포켓몬 피카피카 달콤 앙버터 샌드",
+            "ownNumber": ["19950338015-8227"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode":"8801068403275",
+            "name": "포켓몬 발챙이의 빙글빙글 밀크요팡",
+            "ownNumber": ["19930188091-2404"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068405071",
+            "name": "포켓몬 잠만보의 BIG 불닭 피자 110g",
+            "ownNumber": ["19710275003-5245"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068405088",
+            "name": "포켓몬 잠만보의 BIG 고르곤졸라 피자 110g",
+            "ownNumber": ["19710275003-5246"],
+            "type": "spc-samlip"
+        }
+    ]
+}
