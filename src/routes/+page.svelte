@@ -122,6 +122,7 @@
         <p>SPC 혹은 계열사 제품이 아니에요.</p>
     {/if}
     {#if resultData.barcode != null}
+        <p>{resultData.product ? resultData.product: ""}</p>
         <p>바코드 정보: {resultData.barcode ? resultData.barcode: "데이터를 읽으면 데이터가 표시됩니다."}</p>
         <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScammI4qPQs8MNfHpSJhOh1ik43_jlB0fRqxv3cJLD285tZbQ/viewform?entry.350390761={resultData.barcode}" class="request" target="_blank" rel="noreferrer">제보 및 문의하기</a></p>
         <p><a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" rel="noreferrer" class="suggest-spc">SPC의 다양한 브랜드도 만나보세요.</a></p>

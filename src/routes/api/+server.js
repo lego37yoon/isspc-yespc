@@ -1,5 +1,5 @@
 import manufacturers from "./manufacturers.json";
-//import products from "./products.json";
+import products from "./products.json";
 
 export function isSpcProduct(barcode) {
     /*
@@ -15,7 +15,8 @@ export function isSpcProduct(barcode) {
         manu: null,
         spc: false,
         barcode: barcode,
-        color: null
+        color: null,
+        product: null
     };
 
     if (barcode.length != 13) {
@@ -35,6 +36,18 @@ export function isSpcProduct(barcode) {
             returnStrings.spc = manu.spc;
             returnStrings.color = manu.color;
             returnStrings.resultCode = 200;
+        }
+    }
+
+    for(const index of products.list) {
+        if(barcode === index.barcode) {
+            returnStrings.product = index.name;
+            if (!returnStrings.spc) {
+                returnStrings.spc = true;
+                returnStrings.manu = manufacturers[index.type].name;
+                returnStrings.color = manufacturers[index.type].color;
+                returnStrings.resultCode = 200;
+            }
         }
     }
 
