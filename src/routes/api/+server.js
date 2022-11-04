@@ -19,7 +19,7 @@ export function isSpcProduct(barcode) {
         product: null
     };
 
-    if (barcode.length != 13) {
+    if (barcode.length != 13 && barcode.length != 18) {
         returnStrings.resultCode = 411;
         return returnStrings;
     }

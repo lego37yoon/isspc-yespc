@@ -113,6 +113,12 @@
             "name": "포켓몬 잠만보의 BIG 고르곤졸라 피자 110g",
             "ownNumber": ["19710275003-5246"],
             "type": "spc-samlip"
+        },
+        {
+            "barcode": "880106839097122009",
+            "name": "더블에그샐러드 샌드위치",
+            "ownNumber": null,
+            "type": "spc-samlip"
         }
     ]
 }

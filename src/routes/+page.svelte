@@ -105,11 +105,13 @@
         {#if cameraHidden}
             <input id="type-barcode" type="text" inputmode="numeric" placeholder="880" bind:this={typeBarcode} />
             <button id="type-submit" on:click={getResultFromType(typeBarcode.value)}>찾기</button>
+            {#if errorMessage}
+                <p class="error-message">{errorMessage}</p>
+            {/if}
+            <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드 및 편의점 전용 18자리 바코드만 지원해요.</p>
+        {:else}
+            <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드만 지원해요.</p>
         {/if}
-        {#if errorMessage}
-            <p class="error-message">{errorMessage}</p>
-        {/if}
-        <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드만 지원해요.</p>
     </section>
 </main>
 
