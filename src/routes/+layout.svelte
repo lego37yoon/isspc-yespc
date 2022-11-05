@@ -31,6 +31,15 @@
         text-decoration: none;
     }
 
+    a:focus-visible {
+        outline: 2px solid #30B3E7;
+        border-radius: 5px;
+    }
+
+    h1 a:focus-visible {
+        outline-offset: 7px;
+    }
+
     .header-bread {
         font-size: 1.0rem;
         vertical-align: top;
@@ -56,4 +65,10 @@
         margin: 0;
     }
 
+    @media (prefers-color-scheme: dark) {
+
+        :global(body) {
+            background: #414141;
+        }
+    }
 </style>

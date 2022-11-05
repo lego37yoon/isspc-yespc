@@ -23,4 +23,10 @@
         font-weight: 600;
         color: #30B3E7;
     }
+
+    @media (prefers-color-scheme: dark) {
+        main {
+            color: #e4e4e4;
+        }
+    }
 </style>

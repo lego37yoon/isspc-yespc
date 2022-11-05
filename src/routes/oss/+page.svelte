@@ -62,10 +62,6 @@
         justify-items: center;
     }
 
-    section {
-        
-    }
-
     a, a:visited {
         color: #7F8181;
     }
@@ -73,4 +69,11 @@
     h2, h3 {
         color: #30B3E7;
     }
+
+    @media (prefers-color-scheme: dark) {
+        li, a, a:visited {
+            color: #e4e4e4;
+        }
+    }
+
 </style>

@@ -1,7 +1,7 @@
 <script>
     import { Html5Qrcode, Html5QrcodeScanType, Html5QrcodeSupportedFormats } from "html5-qrcode";
-    import { onMount } from 'svelte';
-    import { isSpcProduct } from './api/+server.js';
+    import { onMount } from "svelte";
+    import { isSpcProduct } from "./api/+server.js";
 
     let toolChooser;
     let cameraHidden = false;
@@ -84,6 +84,8 @@
             }
         });
         dialogPolyfill.registerDialog(resultSection);
+
+        
     });
 
 </script>
@@ -94,7 +96,7 @@
 
 <nav>
     <mwc-tab-bar bind:this={toolChooser}>
-        <mwc-tab isMinWidthIndicator label="카메라" />
+        <mwc-tab isMinWidthIndicator label="카메라"/>
         <mwc-tab isMinWidthIndicator label="직접 입력" />
     </mwc-tab-bar>
 </nav>
@@ -103,11 +105,13 @@
     <section id="input-tab">
         <div id="reader"></div>
         {#if cameraHidden}
-            <input id="type-barcode" type="text" inputmode="numeric" placeholder="880" bind:this={typeBarcode} />
-            <button id="type-submit" on:click={getResultFromType(typeBarcode.value)}>찾기</button>
-            {#if errorMessage}
-                <p class="error-message">{errorMessage}</p>
-            {/if}
+            <form on:submit|preventDefault={getResultFromType(typeBarcode.value)}>
+                <input id="type-barcode" type="text" inputmode="numeric" placeholder="880" bind:this={typeBarcode} />
+                <button id="type-submit" type="submit">찾기</button>
+                {#if errorMessage}
+                    <p class="error-message">{errorMessage}</p>
+                {/if}    
+            </form>
             <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드 및 편의점 전용 18자리 바코드만 지원해요.</p>
         {:else}
             <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드만 지원해요.</p>
@@ -142,6 +146,11 @@
         --mdc-typography-button-font-weight: 600;
     }
 
+    nav mwc-tab:focus-visible {
+        border-radius: 5px;
+        outline: 2px solid #30B3E7;
+    }
+
     .error-message {
         margin-bottom: 0;
         color: #8C182B;
@@ -164,7 +173,7 @@
         position: fixed;
     }
 
-    section {
+    section, form {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
@@ -191,7 +200,12 @@
         font-size: 1rem;
         border-radius: 10px;
         border: 1px solid #30B3E7;
+        color: #7F8181;
         padding: 0.5rem;
+    }
+
+    input:focus-visible {
+        outline: 2px solid #30B3E7;
     }
 
     button {
@@ -206,11 +220,49 @@
         background: #30B3E7;
     }
 
+    button:focus-visible {  
+        outline: 2px solid #7F8181;     
+    }
+    
+
     dialog button {
         width: 100%;
     }
 
     section button {
         width: 320px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        nav {
+            color: #e4e4e4;
+            --mdc-tab-text-label-color-default: #e4e4e4;
+        }
+
+        input {
+            background: #414141;
+            color: #e4e4e4;
+        }
+
+        dialog {
+            background: #414141;
+            color: #e4e4e4;
+        }
+
+        section p {
+            color: #e4e4e4;
+        }
+
+        input::placeholder {
+            color: #e4e4e4;
+        }
+
+        button:focus-visible {
+            outline: 2px solid #e4e4e4;     
+        }
+
+        .error-message {
+            color: #f38b9d;
+        }
     }
 </style>
