@@ -21,7 +21,7 @@
                 errorMessage = "해외 제품이나 단축형, 비표준형 바코드는 지원하지 않습니다.";
                 break;
             case 411:
-                errorMessage = "13자리가 맞는지 다시 한 번 확인해주세요.";
+                errorMessage = "13자리 혹은 18자리가 맞는지 다시 한 번 확인해주세요.";
                 break;
             case 404:
             case 200:
