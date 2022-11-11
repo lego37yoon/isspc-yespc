@@ -53,7 +53,6 @@
 
             },
             (decodedText) => {
-                codeElement.clear();
                 getResultFromType(decodedText);
             },
             (errorMessage) => {
@@ -70,7 +69,7 @@
             frameRate: 30,
             sharpness: 1.5,
             focusDistance: 1.0,
-            zoom: 2.0
+            resizeMode: "crop-and-scale"
         });
     }
 
@@ -96,8 +95,6 @@
             }
         });
         dialogPolyfill.registerDialog(resultSection);
-
-        
     });
 
 </script>
@@ -145,7 +142,7 @@
         <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScammI4qPQs8MNfHpSJhOh1ik43_jlB0fRqxv3cJLD285tZbQ/viewform?entry.350390761={resultData.barcode}" class="request" target="_blank" rel="noreferrer">제보 및 문의하기</a></p>
         <p><a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" rel="noreferrer" class="suggest-spc">SPC의 다양한 브랜드도 만나보세요.</a></p>
     {/if}
-    <button id="close-dialog" on:click={resultSection.close() && (cameraHidden ? "" : createCamera())}>닫고 다시 찾기</button>
+    <button id="close-dialog" on:click={resultSection.close()}>닫고 다시 찾기</button>
 </dialog>
 
 <style>
