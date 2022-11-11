@@ -35,7 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["dialog-polyfill", "npm:0.5.6"],\
             ["eslint", "npm:8.26.0"],\
             ["eslint-plugin-svelte3", "virtual:86a3e1053167f3225ff6f5ad5b7b1df270a26cc2eedc2baa0f28ad8c03bbcfac35a5c6286c990e66c6e9f736f7a831399120a54e38f4ccd4c6246e4747d200e8#npm:4.0.0"],\
-            ["html5-qrcode", "npm:2.2.4"],\
+            ["html5-qrcode", "npm:2.2.8"],\
             ["svelte", "npm:3.52.0"],\
             ["vite", "virtual:86a3e1053167f3225ff6f5ad5b7b1df270a26cc2eedc2baa0f28ad8c03bbcfac35a5c6286c990e66c6e9f736f7a831399120a54e38f4ccd4c6246e4747d200e8#npm:3.1.8"]\
           ],\
@@ -896,7 +896,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["dialog-polyfill", "npm:0.5.6"],\
             ["eslint", "npm:8.26.0"],\
             ["eslint-plugin-svelte3", "virtual:86a3e1053167f3225ff6f5ad5b7b1df270a26cc2eedc2baa0f28ad8c03bbcfac35a5c6286c990e66c6e9f736f7a831399120a54e38f4ccd4c6246e4747d200e8#npm:4.0.0"],\
-            ["html5-qrcode", "npm:2.2.4"],\
+            ["html5-qrcode", "npm:2.2.8"],\
             ["svelte", "npm:3.52.0"],\
             ["vite", "virtual:86a3e1053167f3225ff6f5ad5b7b1df270a26cc2eedc2baa0f28ad8c03bbcfac35a5c6286c990e66c6e9f736f7a831399120a54e38f4ccd4c6246e4747d200e8#npm:3.1.8"]\
           ],\
@@ -1868,10 +1868,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["html5-qrcode", [\
-        ["npm:2.2.4", {\
-          "packageLocation": "./.yarn/cache/html5-qrcode-npm-2.2.4-4154e1f5c2-9a4857f1e6.zip/node_modules/html5-qrcode/",\
+        ["npm:2.2.8", {\
+          "packageLocation": "./.yarn/cache/html5-qrcode-npm-2.2.8-76a2388f97-02c15758f1.zip/node_modules/html5-qrcode/",\
           "packageDependencies": [\
-            ["html5-qrcode", "npm:2.2.4"]\
+            ["html5-qrcode", "npm:2.2.8"]\
           ],\
           "linkType": "HARD"\
         }]\
