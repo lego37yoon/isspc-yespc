@@ -40,7 +40,15 @@ export function isSpcProduct(barcode) {
     }
 
     for(const index of products.list) {
-        if(barcode === index.barcode) {
+        if(barcode === index.barcode && !index.length) {
+            returnStrings.product = index.name;
+            if (!returnStrings.spc) {
+                returnStrings.spc = true;
+                returnStrings.manu = manufacturers[index.type].name;
+                returnStrings.color = manufacturers[index.type].color;
+                returnStrings.resultCode = 200;
+            }
+        } else if (barcode.startsWith(index.barcode) && barcode.length == 18) {
             returnStrings.product = index.name;
             if (!returnStrings.spc) {
                 returnStrings.spc = true;
