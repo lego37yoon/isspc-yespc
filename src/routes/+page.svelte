@@ -65,7 +65,13 @@
         });
 
         codeElement.applyVideoConstraints({
-
+            focusMode: "continuous",
+            facingMode: "environment",
+            frameRate: 30,
+            aspectRatio: 1.0,
+            sharpness: 1.5,
+            noiseSuppression: true,
+            focusDistance: 1.0
         });
     }
 
