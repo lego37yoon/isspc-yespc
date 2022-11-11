@@ -31,10 +31,11 @@
             "type": "spc-samlip"
         },
         {
-            "barcode": "880106840451743010",
+            "barcode": "8801068404517",
             "name": "빅통모짜비프버거",
             "ownNumber": null,
-            "type": "spc-samlip"
+            "type": "spc-samlip",
+            "length": "18"
         },
         {
             "barcode": "8801068402261",
@@ -115,8 +116,27 @@
             "type": "spc-samlip"
         },
         {
-            "barcode": "880106839097122009",
+            "barcode": "8801068390971",
             "name": "더블에그샐러드 샌드위치",
+            "ownNumber": null,
+            "type": "spc-samlip",
+            "length": 18
+        },
+        {
+            "barcode": "8801068406726",
+            "name": "노티드 연유우유생크림소라빵",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068371208",
+            "name": "잼있는 딸기쿠키",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068371192",
+            "name": "잼있는 사과쿠키",
             "ownNumber": null,
             "type": "spc-samlip"
         }
