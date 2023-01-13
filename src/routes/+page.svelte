@@ -40,15 +40,26 @@
 
     async function createCamera() {
         codeElement = new Html5Qrcode("reader");
-        codeElement.start(
+        await codeElement.start(
             {
                 facingMode: "environment"
             },
             {
-                fps: 10,
+                fps: 30,
                 aspectRatio: 1.0,
                 supportedScanTypes: [ Html5QrcodeScanType.SCAN_TYPE_CAMERA ],
-                formatsToSupport: [ Html5QrcodeSupportedFormats.EAN_13 ]
+                formatsToSupport: [ Html5QrcodeSupportedFormats.EAN_13 ],
+                useBarCodeDetectorIfSupported: true,
+                videoConstraints: {
+                    focusMode: "continuous",
+                    facingMode: "environment",
+                    height: { min: 512, max: 3120 },
+                    width: { min: 512, max: 3120 },
+                    frameRate: 30,
+                    sharpness: 1.5,
+                    focusDistance: 1.0,
+                    resizeMode: "none"
+                }
             },
             (decodedText) => {
                 getResultFromType(decodedText);
@@ -60,13 +71,13 @@
             console.warn(`HTML5 QR Code Scanner Error Message ${err}`);
             toolChooser.setAttribute("activeIndex", "1");
         });
+
     }
 
     onMount(async() => {
         await import ("@material/mwc-tab-bar");
         await import ("@material/mwc-tab");
         const dialogPolyfill = (await import ("dialog-polyfill")).default;
-
 
         await createCamera();
         toolChooser.addEventListener('MDCTabBar:activated', function(data) {
@@ -84,8 +95,6 @@
             }
         });
         dialogPolyfill.registerDialog(resultSection);
-
-        
     });
 
 </script>
