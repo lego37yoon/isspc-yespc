@@ -5,6 +5,7 @@ node_modules
 /package
 .yarn/cache
 .yarn/unplugged
+.yarn/install-state.gz
 .env
 .env.*
 !.env.example
