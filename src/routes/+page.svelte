@@ -50,7 +50,16 @@
                 supportedScanTypes: [ Html5QrcodeScanType.SCAN_TYPE_CAMERA ],
                 formatsToSupport: [ Html5QrcodeSupportedFormats.EAN_13 ],
                 useBarCodeDetectorIfSupported: true,
-
+                videoConstraints: {
+                    focusMode: "continuous",
+                    facingMode: "environment",
+                    height: { min: 512, max: 3120 },
+                    width: { min: 512, max: 3120 },
+                    frameRate: 30,
+                    sharpness: 1.5,
+                    focusDistance: 1.0,
+                    resizeMode: "none"
+                }
             },
             (decodedText) => {
                 getResultFromType(decodedText);
@@ -63,21 +72,12 @@
             toolChooser.setAttribute("activeIndex", "1");
         });
 
-        codeElement.applyVideoConstraints({
-            focusMode: "continuous",
-            facingMode: "environment",
-            frameRate: 30,
-            sharpness: 1.5,
-            focusDistance: 1.0,
-            resizeMode: "crop-and-scale"
-        });
     }
 
     onMount(async() => {
         await import ("@material/mwc-tab-bar");
         await import ("@material/mwc-tab");
         const dialogPolyfill = (await import ("dialog-polyfill")).default;
-
 
         await createCamera();
         toolChooser.addEventListener('MDCTabBar:activated', function(data) {
