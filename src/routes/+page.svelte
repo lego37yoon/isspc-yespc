@@ -1,5 +1,6 @@
 <script>
     import { Html5Qrcode, Html5QrcodeScanType, Html5QrcodeSupportedFormats } from "html5-qrcode";
+    import { fly } from "svelte/transition"; 
     import { onMount } from "svelte";
     import { isSpcProduct } from "./api/+server.js";
 
@@ -108,10 +109,14 @@
         <mwc-tab isMinWidthIndicator label="카메라"/>
         <mwc-tab isMinWidthIndicator label="직접 입력" />
     </mwc-tab-bar>
+    <div id="tool-selector" role="tablist">
+        <button id="camera-tab-btn" role="tab" aria-selected="true">카메라</button>
+        <button id="keyboard-tab-btn" role="tab" aria-selected="false">직접 입력</button>
+    </div>
 </nav>
 
 <main>
-    <section id="input-tab">
+    <section id="input-tab" role="tabpanel">
         <div id="reader"></div>
         {#if cameraHidden}
             <form on:submit|preventDefault={getResultFromType(typeBarcode.value)}>
@@ -153,11 +158,39 @@
         --mdc-typography-font-family: "IBM Plex Sans KR", sans-serif;
         --mdc-typography-button-font-size: 1.0rem;
         --mdc-typography-button-font-weight: 600;
+        display: flex;
+        justify-content: center;
     }
 
-    nav mwc-tab:focus-visible {
-        border-radius: 5px;
-        outline: 2px solid #30B3E7;
+    #tool-selector {
+        background: #e4e4e4;
+        width: max-content;
+        height: max-content;
+        border-radius: 25px;
+    }
+
+    #tool-selector button {
+        background: #30B3E7;
+        border: none;
+        outline: none;
+        border-radius: 25px;
+        color: #FFFFFF;
+        display: inline-block;
+    }
+
+    #tool-selector button[aria-selected="false"] {
+        background: #e4e4e4;
+        outline: none;
+        color: #7F8181;
+    }
+
+    #tool-selector button[aria-selected="false"]:hover {
+        background: #7F8181;
+        color: #FFFFFF;
+    }
+
+    #tool-selector button:focus-visible {
+        outline: 2px solid #7F8181;
     }
 
     .error-message {
@@ -180,6 +213,20 @@
     dialog {
         font-family: "IBM Plex Sans KR", sans-serif;
         position: fixed;
+    }
+
+    dialog[open] {
+        animation: slidepop 0.25s cubic-bezier(.68,-0.55,.27,1.55) normal;
+    }
+
+    @keyframes slidepop {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 
     section, form {
@@ -245,7 +292,6 @@
     @media (prefers-color-scheme: dark) {
         nav {
             color: #e4e4e4;
-            --mdc-tab-text-label-color-default: #e4e4e4;
         }
 
         input {
@@ -272,6 +318,15 @@
 
         .error-message {
             color: #f38b9d;
+        }
+
+        #tool-selector {
+            background: #5c5c5c;
+        }
+
+        #tool-selector button[aria-selected="false"] {
+            background: #5c5c5c;
+            color: #e4e4e4;
         }
     }
 </style>
