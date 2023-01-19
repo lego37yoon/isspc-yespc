@@ -1,10 +1,10 @@
 <script>
     import { Html5Qrcode, Html5QrcodeScanType, Html5QrcodeSupportedFormats } from "html5-qrcode";
-    import { fly } from "svelte/transition"; 
     import { onMount } from "svelte";
     import { isSpcProduct } from "./api/+server.js";
 
-    let toolChooser;
+    let cameraTabBtn;
+    let keyboardTabBtn;
     let cameraHidden = false;
     let resultSection;
     let codeElement = null;
@@ -70,10 +70,12 @@
             }
         ).catch((err) => {
             console.warn(`HTML5 QR Code Scanner Error Message ${err}`);
-            toolChooser.setAttribute("activeIndex", "1");
+            cameraTabBtn.setAttribute("aria-selected", "false");
+            keyboardTabBtn.setAttribute("aria-selected", "true");
         });
 
     }
+
 
     onMount(async() => {
         await import ("@material/mwc-tab-bar");
@@ -81,6 +83,7 @@
         const dialogPolyfill = (await import ("dialog-polyfill")).default;
 
         await createCamera();
+        /*
         toolChooser.addEventListener('MDCTabBar:activated', function(data) {
             switch(data.detail.index) {
                 case 1:
@@ -95,6 +98,8 @@
                     break;
             }
         });
+        */
+
         dialogPolyfill.registerDialog(resultSection);
     });
 
@@ -105,13 +110,9 @@
 </svelte:head>
 
 <nav>
-    <mwc-tab-bar bind:this={toolChooser}>
-        <mwc-tab isMinWidthIndicator label="카메라"/>
-        <mwc-tab isMinWidthIndicator label="직접 입력" />
-    </mwc-tab-bar>
     <div id="tool-selector" role="tablist">
-        <button id="camera-tab-btn" role="tab" aria-selected="true">카메라</button>
-        <button id="keyboard-tab-btn" role="tab" aria-selected="false">직접 입력</button>
+        <button id="camera-tab-btn" role="tab" aria-selected="true" bind:this={cameraTabBtn}>카메라</button>
+        <button id="keyboard-tab-btn" role="tab" aria-selected="false" bind:this={keyboardTabBtn}>직접 입력</button>
     </div>
 </nav>
 
@@ -153,11 +154,6 @@
 <style>
 
     nav {
-        --mdc-theme-primary: #30B3E7;
-        --mdc-ripple-focus-opacity: 0.00;
-        --mdc-typography-font-family: "IBM Plex Sans KR", sans-serif;
-        --mdc-typography-button-font-size: 1.0rem;
-        --mdc-typography-button-font-weight: 600;
         display: flex;
         justify-content: center;
     }
@@ -208,6 +204,11 @@
     main {
         font-family: "IBM Plex Sans KR", sans-serif;
         color: #7F8181
+    }
+
+    #reader {
+        border-radius: 25px;
+        overflow: hidden;
     }
 
     dialog {
