@@ -1,6 +1,10 @@
+<script>
+    import { page } from "$app/stores";
+</script>
+
 <header>
     <h1>
-        <a href="./">
+        <a href="{$page.url.origin}">
             <span class="header-default">예스피씨</span>
             <sup class="header-bread">알파</sup>
         </a>
@@ -30,9 +34,15 @@
         color: #30B3E7;
     }
 
-    h1 a, h1 a:visited, h1 a:hover, h1 a:active {
+    h1 a, h1 a:visited, h1 a:active {
         color: #30B3E7;
-        text-decoration: none;
+        text-decoration: transparent;
+    }
+
+    h1 a:hover {
+        text-decoration: underline solid 2.5px #30B3E7;
+        text-underline-position: under;
+        transition: text-decoration 1s;
     }
 
     a:focus-visible {
@@ -68,7 +78,7 @@
     footer a:hover {
         background: #7F8181;
         color: #e4e4e4;
-        border-radius: 25px;
+        border-radius: 5px;
         text-decoration: none;
     }
 

@@ -280,6 +280,10 @@
     button:focus-visible {  
         outline: 2px solid #7F8181;     
     }
+
+    button:hover {
+        background: #2ca6d6;
+    }
     
 
     dialog button {
