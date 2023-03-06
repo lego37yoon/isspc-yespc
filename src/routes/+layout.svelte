@@ -2,7 +2,7 @@
     <h1>
         <a href="./">
             <span class="header-default">예스피씨</span>
-            <sup class="header-bread">알파</sup>
+            <sup class="header-bread">베타</sup>
         </a>
     </h1>
 </header>
