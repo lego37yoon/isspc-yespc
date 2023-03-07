@@ -22,6 +22,10 @@ export function GET({ url }) {
         product: null
     };
 
+    if (!barcode) {
+        throw error("400", "Barcode data not received. Please check your request.");
+    }
+
     if (barcode.length != 13 && barcode.length != 18) {
         returnStrings.resultCode = 411;
         return json(returnStrings);

@@ -1,8 +1,7 @@
 <script>
     import { Html5Qrcode, Html5QrcodeScanType, Html5QrcodeSupportedFormats } from "html5-qrcode";
     import { onMount } from "svelte";
-    import { isSpcProduct } from "./api/+server.js";
-
+    
     let toolChooser;
     let cameraHidden = false;
     let resultSection;
@@ -15,7 +14,8 @@
 
     async function getResultFromType(barcode) {
         errorMessage = undefined;
-        resultData = isSpcProduct(barcode);
+        const responseData = await fetch(`/api/product?barcode=${barcode}`);
+        resultData = await responseData.json();
         switch (resultData.resultCode) {
             case 400:
                 errorMessage = "해외 제품이나 단축형, 비표준형 바코드는 지원하지 않습니다.";
