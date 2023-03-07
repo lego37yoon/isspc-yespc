@@ -1,0 +1,288 @@
+{
+    "list": [
+        {
+            "barcode": "8809687080242",
+            "name": "GS25 삼립호빵 핫팩 대형",
+            "ownNumber": null,
+            "type": "spc-samlip-col"
+        },
+        {
+            "barcode": "8809766820028",
+            "name": "GS25 삼립호빵 핫팩 일반형",
+            "ownNumber": null,
+            "type": "spc-samlip-col"
+        },
+        {
+            "barcode": "8801068406719",
+            "name": "노티드 우유크림슈",
+            "ownNumber": ["19950338015-8643"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068406306",
+            "name": "쿠키런 야심찬 아포가토 롤케익",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402346",
+            "name": "쿠키런 활기찬 베리롤케익",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068404517",
+            "name": "빅통모짜비프버거",
+            "ownNumber": null,
+            "type": "spc-samlip",
+            "length": "18"
+        },
+        {
+            "barcode": "8801068402261",
+            "name": "포켓몬 피카피카 촉촉치즈케익",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402254",
+            "name": "포켓몬 파이리의 화르륵 핫소스팡",
+            "ownNumber": ["19710275003-5186"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402230",
+            "name": "포켓몬 꼬부기의 달콤파삭 꼬부기빵",
+            "ownNumber": ["19710275003-5183"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402278",
+            "name": "포켓몬 돌아온 고오스 초코케익",
+            "ownNumber": ["19710275003-5179", "19930188091-2381"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402285",
+            "name": "포켓몬 돌아온 로켓단 초코롤",
+            "ownNumber": ["19950338015-8567"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402223",
+            "name": "포켓몬 푸린의 폭신폭신 딸기크림빵",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402247",
+            "name": "포켓몬 디그다의 딸기 카스타드 빵",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402636",
+            "name": "포켓몬 피카츄 망고 컵케익",
+            "ownNumber": ["19710275003-5201"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402629",
+            "name": "포켓몬 푸린의 피치피치슈",
+            "ownNumber": ["19950338015-8582"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068403282",
+            "name": "포켓몬 피카피카 달콤 앙버터 샌드",
+            "ownNumber": ["19950338015-8227"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode":"8801068403275",
+            "name": "포켓몬 발챙이의 빙글빙글 밀크요팡",
+            "ownNumber": ["19930188091-2404"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068405071",
+            "name": "포켓몬 잠만보의 BIG 불닭 피자 110g",
+            "ownNumber": ["19710275003-5245"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068405088",
+            "name": "포켓몬 잠만보의 BIG 고르곤졸라 피자 110g",
+            "ownNumber": ["19710275003-5246"],
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068390971",
+            "name": "더블에그샐러드 샌드위치",
+            "ownNumber": null,
+            "type": "spc-samlip",
+            "length": 18
+        },
+        {
+            "barcode": "8801068406726",
+            "name": "노티드 연유우유생크림소라빵",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068371208",
+            "name": "잼있는 딸기쿠키",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068371192",
+            "name": "잼있는 사과쿠키",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068111453",
+            "name": "피그 인 더 가든 치킨 커틀렛 볼 with 화이트발사믹비네그렛",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068111446",
+            "name": "피그 인 더 가든 오리엔탈 쉬림프 볼 with 유자소이 드레싱",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068113396",
+            "name": "피그 인 더 가든 가든 볼 샐러드 with 샴페인비네그렛",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068111453",
+            "name": "피그 인 더 가든 치킨 커틀렛 볼 with 화이트발사믹비네그렛",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068402872",
+            "name": "피그 인 더 가든 탄단지 그릴닭가슴살 볼",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068403374",
+            "name": "피그 인 더 가든 탄단지 골든텐더 치킨보울 with 갈릭페퍼드레싱",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068403367",
+            "name": "피그 인 더 가든 탄단지 콩불구이 라이스 보울 with 참깨드레싱",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068407129",
+            "name": "2개입) 피그 인 더 가든 탄단지 콩불구이 라이스 보울 with 참깨드레싱",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068404289",
+            "name": "피그 인 더 가든 니시고랭 볶음밥 & 한입 닭가슴살",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068403671",
+            "name": "피그 인 더 가든 불고기 샐러드",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068403381",
+            "name": "피그 인 더 가든 탄단지 훈연목살 스테이크 보울 with 콜라겐발사믹",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068373936",
+            "name": "피그 인 더 가든 베리앤리코타 미니샐러드",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068382914",
+            "name": "2개입) 피그 인 더 가든 베리앤리코타 미니샐러드",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068397437",
+            "name": "피그 인 더 가든 허니치킨 스쿱샐러드 700g",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068400434",
+            "name": "피그 인 더 가든 프로틴 콩단백 숯불구이볼 with 콜라겐발사믹",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068384260",
+            "name": "피그 인 더 가든 감자마요 스쿱샐러드 120g",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068381238",
+            "name": "피그 인 더 가든 에그마요 스쿱샐러드 120g",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068387148",
+            "name": "피그 인 더 가든 에그마요 스쿱샐러드 400g",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068387162",
+            "name": "피그 인 더 가든 감자마요 스쿱샐러드 400g",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068384123",
+            "name": "피그 인 더 가든 에그마요 스쿱샐러드 800g",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068391664",
+            "name": "피그 인 더 가든 에그마요 스쿱샐러드 1kg",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068391657",
+            "name": "피그 인 더 가든 참치마요 스쿱샐러드 1kg",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068391640",
+            "name": "피그 인 더 가든 감자마요 스쿱샐러드 1kg",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068377576",
+            "name": "피그 인 더 가든 랜치 드레싱 25g 6개입",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        }
+    ]
+}
