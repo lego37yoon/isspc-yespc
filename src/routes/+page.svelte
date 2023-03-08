@@ -149,7 +149,7 @@
 
     nav {
         --mdc-theme-primary: #30B3E7;
-        --mdc-ripple-focus-opacity: 0.00;
+        --mdc-ripple-focus-opacity: 0.12;
         --mdc-typography-font-family: "IBM Plex Sans KR", sans-serif;
         --mdc-typography-button-font-size: 1.0rem;
         --mdc-typography-button-font-weight: 600;
