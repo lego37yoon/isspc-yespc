@@ -118,16 +118,12 @@
         margin-bottom: 0.5em;
     }
 
-    .response {
+    summary, .response {
         margin: 0;
     }
     
     .response-type {
         margin-inline-start: 1em;
-    }
-
-    summary {
-        margin: 0;
     }
 
     summary h2, summary h4 {
@@ -138,17 +134,18 @@
     summary code {
         margin-inline-start: 0.5em;
     }
+    
+    h1, h2, h3, h4{
+        color: #30B3E7;
+    }
 
     ul {
         padding: 0 0 0 1em;
+        
     }
 
     a, a:visited {
         color: #7F8181;
-    }
-
-    h1, h2, h3, h4{
-        color: #30B3E7;
     }
 
     .notice {
@@ -160,6 +157,8 @@
     code {
         padding: 5px;
         border-radius: 5px;
+        display: inline-block;
+        line-break: anywhere;
     }
 
     table {
