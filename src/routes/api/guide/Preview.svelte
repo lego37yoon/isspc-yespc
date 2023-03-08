@@ -14,12 +14,11 @@
 
 <style>
     code {
-        display: inline-block;
-        width: 100%;
+        display: block;
+        padding: 0.5em;
         line-break:anywhere;
         background: #f1f1f1;
         color: #747575;
-        padding: 5px;
         border-radius: 5px;
     }
 

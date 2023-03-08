@@ -12,9 +12,9 @@
         <section id="openapi">
             <h1>공개 API 사용 안내</h1>
             <p>예스피씨에 기여해주신 데이터를 다시 사용하실 수 있도록, 2023년 3월 8일부터 예스피씨에 사용되는 데이터를 공개 API로 사용하실 수 있습니다. 별도의 인증키는 필요하지 않습니다.</p>
-            <blockquote>
+            <p class="notice">
                 단, 예스피씨 또한 Vercel의 무료 플랜 트래픽 제한을 적용받는 서비스이므로 해당 제한에 의하여 일일 사용이 중단될 수 있습니다. 이 점 유의하시어 개발에 참고하시기 바랍니다.
-            </blockquote>
+            </p>
             {#each apis.list as content}
                 <details id="{content.id}">
                     <summary>
@@ -104,13 +104,11 @@
         justify-items: center;
     }
 
-    section p, section blockquote {
-        margin-inline-end: 0.5em;
-    }
-
     details {
         margin: 1em 0.5em 0 0;
         padding: 0.5em 1em 0.5em 1em;
+        box-sizing: border-box;
+        width: 100%;
         background: #f8f8f8;
         border-radius: 5px;
     }
@@ -123,23 +121,26 @@
     .response {
         margin: 0;
     }
-
-    summary h4 {
-        margin: 0.4em;
-        display: inline-block;
-    }
-
+    
     .response-type {
         margin-inline-start: 1em;
     }
 
-    summary h2, summary p {
-        display: inline-block;
-        margin: 0.5em;
+    summary {
+        margin: 0;
     }
-    
-    summary code, summary p {
-        margin-inline-start: 1em;
+
+    summary h2, summary h4 {
+        display: inline-block;
+        margin: 0;
+    }
+
+    summary code {
+        margin-inline-start: 0.5em;
+    }
+
+    ul {
+        padding: 0 0 0 1em;
     }
 
     a, a:visited {
@@ -150,7 +151,7 @@
         color: #30B3E7;
     }
 
-    blockquote {
+    .notice {
         margin: 0;
         border-radius: 5px;
         padding: 10px;
@@ -173,7 +174,7 @@
         
     }
 
-    blockquote, code, th {
+    .notice, code, th {
         background: #f1f1f1;
         color: #747575;
     }
@@ -198,7 +199,7 @@
             color: #e4e4e4;
         }
 
-        blockquote, code, th {
+        .notice, code, th {
             background: #3d3d3d;
             color: #7F8181;
         }
