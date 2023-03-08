@@ -8,7 +8,6 @@ export function GET({ url }) {
         response list
             404: Data Not Found
             400: Not Supported Data Type
-            410: No data
             411: Short Data
             200: OK
     */

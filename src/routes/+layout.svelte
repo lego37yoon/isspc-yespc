@@ -14,13 +14,13 @@
 <slot></slot>
 
 <footer>
-    <p>copyright 2022 <a href="https://twitter.com/paperbox_update" target="_blank" rel="noreferrer">paperbox</a> and <a href="./oss" target="_blank" rel="noreferrer">contributors</a></p>
+    <p>copyright 2022 - 2023 <a href="https://twitter.com/paperbox_update" target="_blank" rel="noreferrer">paperbox</a> and <a href="{$page.url.origin}/oss" target="_blank" rel="noreferrer">contributors</a></p>
     <p>Special Thanks to <a href="https://twitter.com/RanolP_777" target="_blank" rel="noreferrer">Ranol☆P</a></p>
     <p>Inspired by <a href="https://isnamyang.nullfull.kr" target="_blank" rel="noreferrer">IsNamyang</a> Project</p>
     <p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScammI4qPQs8MNfHpSJhOh1ik43_jlB0fRqxv3cJLD285tZbQ/viewform?usp=sf_link" class="request" target="_blank" rel="noreferrer">제보 및 문의하기</a> | 
         <a href="https://github.com/lego37yoon/isspc-yespc" target="_blank" rel="noreferrer">기여하기</a> | 
-        <a href="./api/guide">공개 API</a>
+        <a href="{$page.url.origin}/api/guide">공개 API</a>
     </p>
 </footer>
 
