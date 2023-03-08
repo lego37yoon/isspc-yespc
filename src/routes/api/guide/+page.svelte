@@ -170,7 +170,10 @@
     td, th {
         padding: 10px;
         border-radius: 5px;
-        
+    }
+
+    td code {
+        line-break: normal;
     }
 
     .notice, code, th {

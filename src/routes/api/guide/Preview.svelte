@@ -14,7 +14,7 @@
 
 <style>
     code {
-        display: block;
+        display: inline-block;
         padding: 0.5em;
         line-break:anywhere;
         background: #f1f1f1;
