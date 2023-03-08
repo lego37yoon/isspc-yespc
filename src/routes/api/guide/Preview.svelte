@@ -7,7 +7,6 @@
     onMount(async () => {
         const data = await fetch(`..${uri}`);
         code = await data.text();
-        console.log(code);
     })
 </script>
 
@@ -15,6 +14,9 @@
 
 <style>
     code {
+        display: inline-block;
+        width: 100%;
+        line-break:anywhere;
         background: #f1f1f1;
         color: #747575;
         padding: 5px;

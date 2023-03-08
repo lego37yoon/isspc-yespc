@@ -104,11 +104,13 @@
         justify-items: center;
     }
 
+    section p, section blockquote {
+        margin-inline-end: 0.5em;
+    }
+
     details {
-        margin: 1em 0 0 0;
-        width: 95%;
+        margin: 1em 0.5em 0 0;
         padding: 0.5em 1em 0.5em 1em;
-        overflow: scroll;
         background: #f8f8f8;
         border-radius: 5px;
     }
@@ -191,6 +193,7 @@
         }
 
         table {
+            border: 1px solid #3d3d3d;
             background: #3d3d3d;
             color: #e4e4e4;
         }
