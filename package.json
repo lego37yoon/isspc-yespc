@@ -9,19 +9,19 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.10.0",
-		"eslint": "^8.35.0",
+		"@sveltejs/adapter-auto": "^2.1.0",
+		"@sveltejs/kit": "^1.20.1",
+		"eslint": "^8.42.0",
 		"eslint-plugin-svelte3": "^4.0.0",
-		"svelte": "^3.55.1",
-		"vite": "^4.1.4"
+		"svelte": "^3.59.1",
+		"vite": "^4.3.9"
 	},
 	"type": "module",
 	"dependencies": {
 		"@material/mwc-tab": "^0.27.0",
 		"@material/mwc-tab-bar": "^0.27.0",
 		"dialog-polyfill": "^0.5.6",
-		"html5-qrcode": "^2.3.7"
+		"html5-qrcode": "^2.3.8"
 	},
 	"packageManager": "yarn@3.4.1"
 }
