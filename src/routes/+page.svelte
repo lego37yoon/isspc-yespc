@@ -78,13 +78,26 @@
         });
     }
 
+    async function stopCamera() {
+        await scanner.stop();
+        scanner.clear();
+        scanner = null;
+    }
+
     async function chooseTool(e) {
         switch(e.target.selected) {
             case 1:
                 cameraHidden = true;
-                await scanner.stop();
-                scanner.clear();
-                scanner = null;
+                if (scanner.getState() !== 1) {
+                    await stopCamera();
+                } else {
+                    const tryStopScanner = setInterval(async function() {
+                        if (scanner.getState() !== 1) {
+                            await stopCamera();
+                            clearInterval(tryStopScanner);
+                        }
+                    }, 500);
+                }
                 break;
             case 0:
             default:
