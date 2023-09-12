@@ -17,9 +17,6 @@
     };
 
     async function getResultFromType(barcode) {
-        if (scanner) {
-            scanner.pause(true);
-        }
         errorMessage = undefined;
         const responseData = await fetch(`/api/product?barcode=${barcode}`);
         resultData = await responseData.json();
@@ -32,6 +29,9 @@
                 break;
             case 404:
             case 200:
+                if (scanner) {
+                    scanner.pause(true);
+                }
                 await resultSection.showModal();
                 if (typeof HTMLDialogElement !== "function") {
                     resultSection.style.position = "fixed";
