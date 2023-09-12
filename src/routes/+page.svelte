@@ -1,11 +1,15 @@
 <script>
     import { Html5Qrcode, Html5QrcodeScanType, Html5QrcodeSupportedFormats } from "html5-qrcode";
+    import "@material/web/icon/icon.js";
+    import "@material/web/iconbutton/icon-button.js";
+    import "@material/web/tabs/tabs.js";
+    import "@material/web/tabs/secondary-tab.js";
     import { onMount } from "svelte";
     
-    let toolChooser;
     let cameraHidden = false;
     let resultSection;
-    let codeElement = null;
+    let scanner = null;
+    let tabs = null;
     let typeBarcode;
     let errorMessage;
     let resultData = {
@@ -39,8 +43,8 @@
     }
 
     async function createCamera() {
-        codeElement = new Html5Qrcode("reader");
-        await codeElement.start(
+        scanner = new Html5Qrcode("reader");
+        await scanner.start(
             {
                 facingMode: "environment"
             },
@@ -56,8 +60,6 @@
                     height: { min: 512, max: 3120 },
                     width: { min: 512, max: 3120 },
                     frameRate: 30,
-                    sharpness: 1.5,
-                    focusDistance: 1.0,
                     resizeMode: "none"
                 }
             },
@@ -69,31 +71,29 @@
             }
         ).catch((err) => {
             console.warn(`HTML5 QR Code Scanner Error Message ${err}`);
-            toolChooser.setAttribute("activeIndex", "1");
+            tabs.selected = 1;
         });
-
     }
 
-    onMount(async() => {
-        await import ("@material/mwc-tab-bar");
-        await import ("@material/mwc-tab");
-        const dialogPolyfill = (await import ("dialog-polyfill")).default;
+    async function chooseTool(e) {
+        switch(e.target.selected) {
+            case 1:
+                cameraHidden = true;
+                await scanner.stop();
+                scanner.clear();
+                scanner = null;
+                break;
+            case 0:
+            default:
+                cameraHidden = false;
+                await createCamera();
+                break;
+        }
+    };
 
+    onMount(async() => {
+        const dialogPolyfill = (await import ("dialog-polyfill")).default;
         await createCamera();
-        toolChooser.addEventListener('MDCTabBar:activated', function(data) {
-            switch(data.detail.index) {
-                case 1:
-                    cameraHidden = true;
-                    codeElement.stop();
-                    codeElement = null;
-                    break;
-                case 0:
-                default:
-                    cameraHidden = false;
-                    createCamera();
-                    break;
-            }
-        });
         dialogPolyfill.registerDialog(resultSection);
     });
 
@@ -104,10 +104,16 @@
 </svelte:head>
 
 <nav>
-    <mwc-tab-bar bind:this={toolChooser}>
-        <mwc-tab isMinWidthIndicator label="카메라"/>
-        <mwc-tab isMinWidthIndicator label="직접 입력" />
-    </mwc-tab-bar>
+    <md-tabs on:change={chooseTool} bind:this={tabs} >
+        <md-secondary-tab inline-icon selected>
+            <md-icon slot="icon">barcode_scanner</md-icon>
+            카메라
+        </md-secondary-tab>
+        <md-secondary-tab inline-icon>
+            <md-icon slot="icon">keyboard</md-icon>
+            직접 입력
+        </md-secondary-tab>
+    </md-tabs>
 </nav>
 
 <main>
@@ -148,16 +154,18 @@
 <style>
 
     nav {
-        --mdc-theme-primary: #30B3E7;
-        --mdc-ripple-focus-opacity: 0.12;
-        --mdc-typography-font-family: "IBM Plex Sans KR", sans-serif;
-        --mdc-typography-button-font-size: 1.0rem;
-        --mdc-typography-button-font-weight: 600;
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+        --md-sys-color-primary: #30B3E7;
+        --md-sys-color-on-surface: #30B3E7;
+        --md-sys-color-surface: transperant;
+        --md-ref-typeface-plain: "IBM Plex Sans KR", sans-serif;
+        --md-ref-typeface-weight-medium: 600;
     }
 
-    nav mwc-tab:focus-visible {
-        border-radius: 5px;
-        outline: 2px solid #30B3E7;
+    nav md-tabs {
+        border-radius: 10px;
     }
 
     .error-message {
@@ -196,6 +204,8 @@
     
     #reader {
         width: 320px;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
     #result {
@@ -244,8 +254,8 @@
 
     @media (prefers-color-scheme: dark) {
         nav {
-            color: #e4e4e4;
-            --mdc-tab-text-label-color-default: #e4e4e4;
+            --md-sys-color-on-surface-variant: #e4e4e4;
+            --md-sys-color-outline-variant: #414141;
         }
 
         input {
@@ -272,6 +282,12 @@
 
         .error-message {
             color: #f38b9d;
+        }
+    }
+
+    @media screen and (max-width: 340px) {
+        #reader {
+            width: 90vw;
         }
     }
 </style>

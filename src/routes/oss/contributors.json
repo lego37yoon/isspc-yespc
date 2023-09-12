@@ -39,9 +39,16 @@
             "notes": "웹 애플리케이션 프레임워크"
         },
         {
-            "name": "Material Web Components: mwc-tab-bar, mwc-tab",
+            "name": "Material Web Components: mwc-tab-bar, mwc-tab (~베타)",
             "url": "https://github.com/material-components/material-web",
-            "license-url": "https://github.com/material-components/material-web/blob/master/LICENSE",
+            "license-url": "https://github.com/material-components/material-web/blob/mwc/LICENSE",
+            "license-name": "Apache 2.0 License",
+            "notes": "Material Components를 이용한 탭 구현"
+        },
+        {
+            "name": "Material Web Components: @material/web (1.0~)",
+            "url": "https://github.com/material-components/material-web",
+            "license-url": "https://github.com/material-components/material-web/blob/main/LICENSE",
             "license-name": "Apache 2.0 License",
             "notes": "Material Components를 이용한 탭 구현"
         },
@@ -64,6 +71,13 @@
             "url": "https://github.com/IBM/plex",
             "license-url": "https://github.com/IBM/plex/blob/master/LICENSE.txt",
             "license-name": "SIL Open Font License 1.1",
+            "notes": "글꼴"
+        },
+        {
+            "name": "Material Symbols",
+            "url": "https://fonts.google.com/icons",
+            "license-url": "https://www.apache.org/licenses/LICENSE-2.0.html",
+            "license-name": "Apache 2.0 License",
             "notes": "글꼴"
         }
     ]
