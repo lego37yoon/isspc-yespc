@@ -258,6 +258,7 @@
         color: #FFFFFF;
         padding: 10px;
         background: #30B3E7;
+        cursor: pointer;
     }
 
     button:focus-visible {  
