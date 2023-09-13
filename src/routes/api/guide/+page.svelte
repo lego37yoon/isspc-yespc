@@ -121,6 +121,10 @@
     summary, .response {
         margin: 0;
     }
+
+    summary {
+        cursor: pointer;
+    }
     
     .response-type {
         margin-inline-start: 1em;
