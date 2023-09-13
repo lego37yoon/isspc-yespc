@@ -5,6 +5,7 @@
     import "@material/web/tabs/tabs.js";
     import "@material/web/tabs/secondary-tab.js";
     import { onMount } from "svelte";
+    import { beforeNavigate } from "$app/navigation";
     
     let cameraHidden = false;
     let resultSection;
@@ -75,6 +76,7 @@
         ).catch((err) => {
             console.warn(`HTML5 QR Code Scanner Error Message ${err}`);
             tabs.selected = 1;
+            cameraHidden = true;
         });
     }
 
@@ -113,6 +115,11 @@
         dialogPolyfill.registerDialog(resultSection);
     });
 
+    beforeNavigate(async () => {
+        if (!cameraHidden) {
+            await stopCamera();      
+        }
+    })
 </script>
 
 <svelte:head>
