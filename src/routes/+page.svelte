@@ -202,7 +202,7 @@
     }
 
     .request {
-        color: #7F8181;
+        color: #666868;
     }
     .suggest-spc {
         color: #4063A0;
@@ -210,7 +210,7 @@
 
     main {
         font-family: "IBM Plex Sans KR", sans-serif;
-        color: #7F8181
+        color: #666868;
     }
 
     dialog {
@@ -238,7 +238,7 @@
 
     #result {
         border-radius: 10px;
-        border: solid 1px #7F8181;
+        border: solid 1px #666868;
     }
     
     input {
@@ -247,7 +247,7 @@
         font-size: 1rem;
         border-radius: 10px;
         border: 1px solid #30B3E7;
-        color: #7F8181;
+        color: #666868;
         padding: 0.5rem;
     }
 
@@ -269,7 +269,7 @@
     }
 
     button:focus-visible {  
-        outline: 2px solid #7F8181;     
+        outline: 2px solid #666868;     
     }
     
 
@@ -284,16 +284,16 @@
     @media (prefers-color-scheme: dark) {
         nav {
             --md-sys-color-on-surface-variant: #e4e4e4;
-            --md-sys-color-outline-variant: #414141;
+            --md-sys-color-outline-variant: #373737;
         }
 
         input {
-            background: #414141;
+            background: #373737;
             color: #e4e4e4;
         }
 
         dialog {
-            background: #414141;
+            background: #373737;
             color: #e4e4e4;
         }
 

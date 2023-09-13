@@ -66,7 +66,7 @@
     }
 
     footer, footer a, footer a:visited {
-        color: #7F8181;
+        color: #666868;
     }
 
     footer p {
@@ -76,7 +76,7 @@
     @media (prefers-color-scheme: dark) {
 
         :global(body) {
-            background: #414141;
+            background: #373737;
         }
     }
 </style>
