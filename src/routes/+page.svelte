@@ -19,32 +19,36 @@
 
     async function getResultFromType(barcode) {
         errorMessage = undefined;
-        const responseData = await fetch(`/api/product?barcode=${barcode}`);
-        resultData = await responseData.json();
-        switch (resultData.resultCode) {
-            case 400:
-                errorMessage = "해외 제품이나 단축형, 비표준형 바코드는 지원하지 않습니다.";
-                break;
-            case 411:
-                errorMessage = "13자리 혹은 18자리가 맞는지 다시 한 번 확인해주세요.";
-                break;
-            case 404:
-            case 200:
-                if (scanner) {
-                    scanner.pause(true);
-                }
-                await resultSection.showModal();
-                if (typeof HTMLDialogElement !== "function") {
-                    resultSection.style.position = "fixed";
-                    resultSection.style.top = "50%";
-                    resultSection.style.transform = "translate(0, -50%)";
-                    document.getElementsByClassName("backdrop")[0].style.cssText = "background: rgba(0,0,0,0.1);position: fixed;top: 0;right: 0;bottom: 0;left: 0;";
-                }
-                break;
-            default:
-                errorMessage = `오류 코드 ${resultData.resultCode}. 알 수 없는 이유로 조회에 실패했습니다.`;
+        if (barcode) {
+            const responseData = await fetch(`/api/product?barcode=${barcode}`);
+            resultData = await responseData.json();
+            switch (resultData.resultCode) {
+                case 400:
+                    errorMessage = "해외 제품이나 단축형, 비표준형 바코드는 지원하지 않습니다.";
+                    break;
+                case 411:
+                    errorMessage = "13자리 혹은 18자리가 맞는지 다시 한 번 확인해주세요.";
+                    break;
+                case 404:
+                case 200:
+                    if (scanner) {
+                        scanner.pause(true);
+                    }
+                    await resultSection.showModal();
+                    if (typeof HTMLDialogElement !== "function") {
+                        resultSection.style.position = "fixed";
+                        resultSection.style.top = "50%";
+                        resultSection.style.transform = "translate(0, -50%)";
+                        document.getElementsByClassName("backdrop")[0].style.cssText = "background: rgba(0,0,0,0.1);position: fixed;top: 0;right: 0;bottom: 0;left: 0;";
+                    }
+                    break;
+                default:
+                    errorMessage = `오류 코드 ${resultData.resultCode}. 알 수 없는 이유로 조회에 실패했습니다.`;
+            }
+        } else {
+            errorMessage = "값을 입력해주세요.";
         }
-    }
+   }
 
     async function createCamera() {
         scanner = new Html5Qrcode("reader");
