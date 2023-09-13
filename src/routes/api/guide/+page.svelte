@@ -63,12 +63,18 @@
                             <caption>{params.name} 응답 값의 예시</caption>
                             <thead>
                                 <th>값</th>
+                                {#if params.result[0].http}
+                                    <th>HTTP 상태코드</th>
+                                {/if}
                                 <th>설명</th>
                             </thead>
                             <tbody>
                                 {#each params.result as example}
                                     <tr>
                                         <td><code>{example.value}</code></td>
+                                        {#if example.http}
+                                        <td><code>{example.http}</code></td>
+                                        {/if}
                                         <td>{example.description}</td>
                                     </tr>
                                 {/each}
