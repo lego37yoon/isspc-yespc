@@ -31,7 +31,7 @@
                     break;
                 case 404:
                 case 200:
-                    if (scanner) {
+                    if (scanner && !cameraHidden) {
                         scanner.pause(true);
                     }
                     await resultSection.showModal();
@@ -177,7 +177,7 @@
     {/if}
     <button id="close-dialog" on:click={function() {
         resultSection.close();
-        if(scanner) {
+        if(scanner && !cameraHidden) {
             scanner.resume();
         }
     }}>닫고 다시 찾기</button>
