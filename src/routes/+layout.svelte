@@ -63,6 +63,11 @@
         justify-items: center;
         margin: 1rem;
         font-family: "IBM Plex Sans KR", sans-serif;
+        text-align: center;
+    }
+
+    footer a {
+        display: inline-block;
     }
 
     footer, footer a, footer a:visited {
