@@ -167,13 +167,27 @@
 <dialog id="result" bind:this={resultSection}>
     {#if resultData.spc}
         <h1>✅ 다행이에요!</h1>
-        <p><span style="color: {resultData.color}">{resultData.manu}</span> 정품을 찾으셨어요.</p>
+        <p class="info-container">
+            <md-icon>info</md-icon>
+            <span style="color: {resultData.color}" class="info">{resultData.manu} </span>
+            <span>정품을 찾으셨어요.</span>
+        </p>
     {:else}
         <h1>❓ 아쉽네요.</h1>
-        <p>SPC 혹은 계열사 제품이 아니에요.</p>
+        <p class="info-container">
+            <md-icon>info</md-icon>
+            <span class="info">SPC 혹은 계열사 </span>
+            <span>제품이 아니에요.</span>
+        </p>
     {/if}
     {#if resultData.barcode != null}
-        <p>{resultData.product ? resultData.product: ""}</p>
+        {#if resultData.product}
+            <p class="info-container">
+                <md-icon>bakery_dining</md-icon>
+                <span class="info">제품명</span>
+                {resultData.product}
+            </p>
+        {/if}
         <p class="info-container">
             <md-icon>barcode_scanner</md-icon>
             <span class="info">바코드 번호</span>
@@ -250,6 +264,7 @@
 
     .info {
         font-weight: 600;
+        word-break: keep-all;
     }
 
     .info-barcode {
@@ -270,14 +285,22 @@
     }
 
     section, form {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
         margin: 2rem 0 2rem 0;
+    }
+
+    form input {
+        min-width: 0;
+        width: 15em;
+        max-width: 90vw;
     }
 
     section p {
         text-align: center;
+        word-break: keep-all;
     }
 
     
@@ -293,9 +316,9 @@
     }
     
     input {
-        margin: 1rem;
-        height: 2.5rem;
-        font-size: 1rem;
+        margin-bottom: 0.5em;
+        height: 2.5em;
+        font-size: 1em;
         border-radius: 10px;
         border: 1px solid #30B3E7;
         color: #666868;
@@ -314,27 +337,22 @@
         justify-content: center;
         gap: 5px;
         border-radius: 10px;
-        border: solid 1px #30B3E7;
+        border: none;
         color: #FFFFFF;
         padding: 10px;
         background: #30B3E7;
         cursor: pointer;
     }
 
-    button:focus-visible {  
-        outline: 2px solid #666868;     
-    }
-    
-
     dialog button {
         width: 100%;
     }
 
     section button {
-        width: 320px;
+        width: 100%;
     }
 
-    button:hover, .button-style-link:hover {
+    button:focus-visible, button:hover, .button-style-link:hover {
         outline: solid #30B3E7;
         outline-offset: 0.1em;
     }
