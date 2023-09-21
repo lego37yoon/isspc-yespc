@@ -149,7 +149,10 @@
         {#if cameraHidden}
             <form on:submit|preventDefault={getResultFromType(typeBarcode.value)}>
                 <input id="type-barcode" type="text" inputmode="numeric" placeholder="880" bind:this={typeBarcode} />
-                <button id="type-submit" type="submit">찾기</button>
+                <button id="type-submit" type="submit">
+                    <md-icon>search</md-icon>
+                    찾기
+                </button>
                 {#if errorMessage}
                     <p class="error-message">{errorMessage}</p>
                 {/if}    
@@ -171,16 +174,29 @@
     {/if}
     {#if resultData.barcode != null}
         <p>{resultData.product ? resultData.product: ""}</p>
-        <p>바코드 정보: {resultData.barcode ? resultData.barcode: "데이터를 읽으면 데이터가 표시됩니다."}</p>
-        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScammI4qPQs8MNfHpSJhOh1ik43_jlB0fRqxv3cJLD285tZbQ/viewform?entry.350390761={resultData.barcode}" class="request" target="_blank" rel="noreferrer">제보 및 문의하기</a></p>
-        <p><a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" rel="noreferrer" class="suggest-spc">SPC의 다양한 브랜드도 만나보세요.</a></p>
+        <p class="info-container">
+            <md-icon>barcode_scanner</md-icon>
+            <span class="info">바코드 번호</span>
+            <span class="info-barcode">{resultData.barcode ? resultData.barcode: "데이터를 읽으면 데이터가 표시됩니다."}</span>
+        </p>
+        <a href="https://www.spc.co.kr/business/spc-brand/" target="_blank" rel="noreferrer" class="suggest-spc button-style-link">
+            <md-icon>store</md-icon>
+            SPC의 다양한 브랜드 만나기
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScammI4qPQs8MNfHpSJhOh1ik43_jlB0fRqxv3cJLD285tZbQ/viewform?entry.350390761={resultData.barcode}" class="request button-style-link" target="_blank" rel="noreferrer">
+            <md-icon>contact_support</md-icon>
+            제보 및 문의하기
+        </a>
     {/if}
     <button id="close-dialog" on:click={function() {
         resultSection.close();
         if(scanner && !cameraHidden) {
             scanner.resume();
         }
-    }}>닫고 다시 찾기</button>
+    }}>
+        <md-icon>find_replace</md-icon>
+        닫고 다시 찾기
+    </button>
 </dialog>
 
 <style>
@@ -205,11 +221,41 @@
         color: #8C182B;
     }
 
-    .request {
-        color: #666868;
+    .button-style-link {
+        border-radius: 10px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        text-decoration: none;
+        padding: 10px;
+        margin-bottom: 0.5em;
     }
+
+    .request {
+        background: #666868;
+        color: #ffffff;
+        
+    }
+
     .suggest-spc {
-        color: #4063A0;
+        background: #4063A0;
+        color: #ffffff;
+    }
+
+    .info-container {
+        display: flex;
+        gap: 5px;
+    }
+
+    .info {
+        font-weight: 600;
+    }
+
+    .info-barcode {
+        background: #e4e4e4;    
+        border-radius: 10px;
+        padding: 0.1em 0.5em;
     }
 
     main {
@@ -220,6 +266,7 @@
     dialog {
         font-family: "IBM Plex Sans KR", sans-serif;
         position: fixed;
+        box-shadow: 1px 1px 5px #666868;
     }
 
     section, form {
@@ -242,7 +289,7 @@
 
     #result {
         border-radius: 10px;
-        border: solid 1px #666868;
+        border: none;
     }
     
     input {
@@ -263,7 +310,9 @@
         font-family: "IBM Plex Sans KR", sans-serif;
         font-weight: 600;
         font-size: 1rem;
-        display: block;
+        display: flex;
+        justify-content: center;
+        gap: 5px;
         border-radius: 10px;
         border: solid 1px #30B3E7;
         color: #FFFFFF;
@@ -283,6 +332,11 @@
 
     section button {
         width: 320px;
+    }
+
+    button:hover, .button-style-link:hover {
+        outline: solid #30B3E7;
+        outline-offset: 0.1em;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -311,6 +365,10 @@
 
         button:focus-visible {
             outline: 2px solid #e4e4e4;     
+        }
+
+        .info-barcode {
+            background: #4b4d4d;
         }
 
         .error-message {

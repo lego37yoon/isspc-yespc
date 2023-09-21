@@ -74,9 +74,12 @@
     }
 
     @media (prefers-color-scheme: dark) {
-
         :global(body) {
             background: #373737;
+        }
+
+        footer, footer a, footer a:visited {
+            color: #B1B6B6;
         }
     }
 </style>
