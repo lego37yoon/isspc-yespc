@@ -4,7 +4,7 @@
     import "@material/web/iconbutton/icon-button.js";
     import "@material/web/tabs/tabs.js";
     import "@material/web/tabs/secondary-tab.js";
-    import { onMount } from "svelte";
+    import { onMount, tick } from "svelte";
     import { beforeNavigate } from "$app/navigation";
     
     let cameraHidden = false;
@@ -77,10 +77,10 @@
             (errorMessage) => {
                 console.warn(`HTML5 QR Code Scanner Error Message ${errorMessage}`);
             }
-        ).catch((err) => {
+        ).catch(async (err) => {
             console.warn(`HTML5 QR Code Scanner Error Message ${err}`);
-            tabs.selected = 1;
             cameraHidden = true;
+            tabs.activeTabIndex = 1;
         });
     }
 
@@ -91,9 +91,8 @@
     }
 
     async function chooseTool(e) {
-        switch(e.target.selected) {
+        switch(e.target.activeTabIndex) {
             case 1:
-                cameraHidden = true;
                 if (scanner.getState() !== 1) {
                     await stopCamera();
                 } else {
@@ -104,10 +103,12 @@
                         }
                     }, 500);
                 }
+                cameraHidden = true;
                 break;
             case 0:
             default:
                 cameraHidden = false;
+                await tick();
                 await createCamera();
                 break;
         }
@@ -131,12 +132,12 @@
 </svelte:head>
 
 <nav>
-    <md-tabs on:change={chooseTool} bind:this={tabs} >
-        <md-secondary-tab inline-icon selected>
+    <md-tabs on:change={chooseTool} bind:this={tabs} aria-label="카메라 혹은 키보드로 입력 전환" >
+        <md-secondary-tab md-tab inline-icon active aria-controls="reader" id="camera-tab">
             <md-icon slot="icon">barcode_scanner</md-icon>
             카메라
         </md-secondary-tab>
-        <md-secondary-tab inline-icon>
+        <md-secondary-tab md-tab inline-icon aria-controls="keyboard-form" id="keyboard-tab">
             <md-icon slot="icon">keyboard</md-icon>
             직접 입력
         </md-secondary-tab>
@@ -145,20 +146,22 @@
 
 <main>
     <section id="input-tab">
-        <div id="reader"></div>
         {#if cameraHidden}
-            <form on:submit|preventDefault={getResultFromType(typeBarcode.value)}>
-                <input id="type-barcode" type="text" inputmode="numeric" placeholder="880" bind:this={typeBarcode} />
+            <form on:submit|preventDefault={getResultFromType(typeBarcode.value)}
+                id="keyboard-form"  aria-labelledby="keyboard-tab">
+                <input id="type-barcode" type="text" inputmode="numeric"
+                    placeholder="880" bind:this={typeBarcode}/>
                 <button id="type-submit" type="submit">
                     <md-icon>search</md-icon>
                     찾기
                 </button>
                 {#if errorMessage}
                     <p class="error-message">{errorMessage}</p>
-                {/if}    
+                {/if}
             </form>
             <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드 및 편의점 전용 18자리 바코드만 지원해요.</p>
         {:else}
+            <div id="reader" aria-labelledby="camera-tab"></div>
             <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드만 지원해요.</p>
         {/if}
     </section>
