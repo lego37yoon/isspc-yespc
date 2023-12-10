@@ -1,12 +1,13 @@
 <script>
     import contributors from "./contributors.json";
+    import { fade } from "svelte/transition";
 </script>
 
 <svelte:head>
     <title>기여해주신 분들 - 예스피씨</title>
 </svelte:head>
 
-<main>
+<main transition:fade={{ duration: 300 }}>
     <div id="contributors">
         <h2>예스피씨 개발에 기여해주신 분들</h2>
         <section id="special-thanks">

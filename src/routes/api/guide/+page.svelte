@@ -1,13 +1,14 @@
 <script>
     import apis from "./apis.json";
     import Preview from "./Preview.svelte";
+    import { fade } from "svelte/transition";
 </script>
 
 <svelte:head>
     <title>공개 API | 예스피씨</title>
 </svelte:head>
 
-<main>
+<main transition:fade={{ duration: 300 }}>
     <div id="inner-main">
         <section id="openapi">
             <h1>공개 API 사용 안내</h1>

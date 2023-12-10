@@ -5,6 +5,7 @@
     import "@material/web/tabs/tabs.js";
     import "@material/web/tabs/secondary-tab.js";
     import { onMount, tick } from "svelte";
+    import { fade } from "svelte/transition";
     import { beforeNavigate } from "$app/navigation";
     
     let cameraHidden = false;
@@ -13,6 +14,7 @@
     let tabs = null;
     let typeBarcode;
     let errorMessage;
+    let infoMessage;
     let resultData = {
         resultCode: 410
     };
@@ -80,6 +82,8 @@
         ).catch(async (err) => {
             console.warn(`HTML5 QR Code Scanner Error Message ${err}`);
             cameraHidden = true;
+            infoMessage = "카메라 권한이 없거나 카메라를 인식하지 못하여 전환되었습니다.";
+            setTimeout(() => { infoMessage = undefined }, 2000);
             tabs.activeTabIndex = 1;
         });
     }
@@ -113,6 +117,12 @@
                 break;
         }
     };
+    
+    function closeDialog() {
+        if(scanner && !cameraHidden) {
+            scanner.resume();
+        }
+    }
 
     onMount(async() => {
         const dialogPolyfill = (await import ("dialog-polyfill")).default;
@@ -148,6 +158,7 @@
     <section id="input-tab">
         {#if cameraHidden}
             <form on:submit|preventDefault={getResultFromType(typeBarcode.value)}
+                transition:fade={{ duration: 300 }}
                 id="keyboard-form"  aria-labelledby="keyboard-tab">
                 <input id="type-barcode" type="text" inputmode="numeric"
                     placeholder="880" bind:this={typeBarcode}/>
@@ -155,15 +166,24 @@
                     <md-icon>search</md-icon>
                     찾기
                 </button>
-                {#if errorMessage}
-                    <p class="error-message">{errorMessage}</p>
-                {/if}
             </form>
-            <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드 및 편의점 전용 18자리 바코드만 지원해요.</p>
+            {#if errorMessage}
+                <p class="error-message" transition:fade={{ duration: 300 }}>
+                    {errorMessage}
+                </p>
+            {:else if infoMessage}
+                <p class="info-message" transition:fade={{ duration: 300 }}>
+                    {infoMessage}
+                </p>
+            {/if}
+            
         {:else}
-            <div id="reader" aria-labelledby="camera-tab"></div>
-            <p>880으로 시작하는 GS1 규격의 13자리 유통 바코드만 지원해요.</p>
+            <div id="reader" aria-labelledby="camera-tab" />
         {/if}
+        <p>
+            880으로 시작하는 GS1 규격의 13자리 유통 바코드{#if cameraHidden}
+            &nbsp;및 편의점 전용 18자리 바코드{/if}만 지원해요.
+        </p>
     </section>
 </main>
 
@@ -205,15 +225,12 @@
             제보 및 문의하기
         </a>
     {/if}
-    <button id="close-dialog" on:click={function() {
-        resultSection.close();
-        if(scanner && !cameraHidden) {
-            scanner.resume();
-        }
-    }}>
-        <md-icon>find_replace</md-icon>
-        닫고 다시 찾기
-    </button>
+    <form method="dialog">
+        <button id="close-dialog" on:click={closeDialog}>
+            <md-icon>find_replace</md-icon>
+            닫고 다시 찾기
+        </button>    
+    </form>
 </dialog>
 
 <style>
@@ -285,6 +302,23 @@
         font-family: "IBM Plex Sans KR", sans-serif;
         position: fixed;
         box-shadow: 1px 1px 5px #666868;
+    }
+
+    dialog[open] {
+        animation: showingDialog 0.7s ease normal;
+    }
+  
+    @keyframes showingDialog{
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    dialog form {
+        margin: 0;
     }
 
     section, form {
