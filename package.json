@@ -9,17 +9,18 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "2.1.1",
-		"@sveltejs/kit": "1.27.7",
-		"eslint": "8.55.0",
-		"eslint-plugin-svelte": "2.35.1",
-		"svelte": "4.2.8",
-		"vite": "4.4.11"
+		"@sveltejs/adapter-auto": "^3.2.0",
+		"@sveltejs/kit": "^2.5.7",
+		"@sveltejs/vite-plugin-svelte": "^3.1.0",
+		"eslint": "9.1.1",
+		"eslint-plugin-svelte": "2.38.0",
+		"svelte": "4.2.15",
+		"vite": "^5.2.10"
 	},
 	"type": "module",
 	"dependencies": {
-		"@material/web": "1.0.1",
-		"dialog-polyfill": "^0.5.6",
+		"@material/web": "1.4.1",
+		"dialog-polyfill": "0.5.6",
 		"html5-qrcode": "2.3.8"
 	},
 	"packageManager": "yarn@4.0.2"

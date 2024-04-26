@@ -22,24 +22,24 @@ export function GET({ url }) {
     };
 
     if (!barcode) {
-        throw error("400", {
-            resultCode: 400,
-            message: "Barcode data not received. Please check your request."
-        });
+        error("400", {
+                    resultCode: 400,
+                    message: "Barcode data not received. Please check your request."
+                });
     }
 
     if (barcode.length != 13 && barcode.length != 18) {
-        throw error(400, {
-            resultCode: 411,
-            message: "Received unsupported length of value."
-        });
+        error(400, {
+                    resultCode: 411,
+                    message: "Received unsupported length of value."
+                });
     }
     
     if (!barcode.startsWith("880")) {
-        throw error(400, {
-            resultCode: 400,
-            message: "API only supports Korean barcode."
-        });
+        error(400, {
+                    resultCode: 400,
+                    message: "API only supports Korean barcode."
+                });
     }
 
     for(const index of Object.keys(manufacturers.indexes)) {
