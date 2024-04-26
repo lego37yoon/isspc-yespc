@@ -14,7 +14,7 @@
 <slot></slot>
 
 <footer>
-    <p>copyright 2022 - 2023 <a href="https://twitter.com/paperbox_update" target="_blank" rel="noreferrer">paperbox</a> and <a href="{$page.url.origin}/oss" >contributors</a></p>
+    <p>copyright 2022 - 2024 <a href="https://twitter.com/paperbox_update" target="_blank" rel="noreferrer">paperbox</a> and <a href="{$page.url.origin}/oss" >contributors</a></p>
     <p>Special Thanks to <a href="https://twitter.com/RanolP_777" target="_blank" rel="noreferrer">Ranol☆P</a></p>
     <p>Inspired by <a href="https://isnamyang.nullfull.kr" target="_blank" rel="noreferrer">IsNamyang</a> Project</p>
     <p>
