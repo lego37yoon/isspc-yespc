@@ -289,6 +289,30 @@
             "name": "던킨 대파크림팝콘 80g",
             "ownNumber": null,
             "type": "br-korea"
+        },
+        {
+            "barcode": "8801068923735",
+            "name": "[블루아카이브] 미카의 한입가득 딸기 롤케이크",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068923698",
+            "name":"[블루아카이브] 레이사의 슈퍼스타 블루베리 샌드케익",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068923728",
+            "name": "[블루아카이브] 카즈사의 달콤한 쿠앤크 빵쿠아즈",
+            "ownNumber": null,
+            "type": "spc-samlip"
+        },
+        {
+            "barcode": "8801068923704",
+            "name": "[블루아카이브] 나기사의 티타임 얼그레이 모찌롤",
+            "ownNumber": null,
+            "type": "spc-samlip"
         }
     ]
 }
